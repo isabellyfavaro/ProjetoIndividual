@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="cadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="./js/sessao.js"></script>
+</head>
+
+<body>
+    <!-- <div class="img1"><img src="cadastro.png" class="img"></div>
+    <div class="img2"><img src="elipse.png" class="img"></div> -->
+    <div class="box"></div>
+    <div class="title">Cadastro</div>
+    <div class="sub-title1">Nome:</div>
+    <input id="input_nome" type="text" placeholder="Digite seu nome" class="placeholder1">
+    <div class="line1"></div>
+    <div class="sub-title2">Email:</div>
+    <input id="input_email" type="text" placeholder="Digite seu email" class="placeholder2">
+    <div class="line2"></div>
+    <div class="sub-title3">Senha:</div>
+    <input id="input_senha" type="password" placeholder="Digite sua senha" class="placeholder3">
+    <div class="line3"></div>
+    <div id="div_button">
+        <button onclick="cadastrar()" class="button">Enviar</button>
+    </div>
+    <div><button onclick="voltar()" class="button3">Voltar</button></div>
+
+    <script>
+        function cadastrar() {
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = input_nome.value;
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" 
+    ) {
+      return false;
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+
+    return false;
+  }
+
+        function voltar() {
+            window.location.replace("../../Site/index.html");
+        }
+    </script>
+</body>
+
+</html>
