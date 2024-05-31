@@ -5,20 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="css/cadastro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <script src="./js/sessao.js"></script>
 </head>
 
 <body>
-    <!-- <div class="img1"><img src="cadastro.png" class="img"></div>
-    <div class="img2"><img src="elipse.png" class="img"></div> -->
+    <div class="img1"></div>
+    <div class="img2"></div>
     <div class="box"></div>
     <div class="title">Cadastro</div>
     <div class="sub-title1">Nome:</div>
@@ -34,6 +31,9 @@
         <button onclick="cadastrar()" class="button">Enviar</button>
     </div>
     <div><button onclick="voltar()" class="button3">Voltar</button></div>
+</body>
+
+</html>
 
     <script>
         function cadastrar() {
@@ -81,7 +81,7 @@
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-      });
+      }); 
 
     return false;
   }
