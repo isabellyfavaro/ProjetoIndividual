@@ -1,0 +1,133 @@
+* {
+    width: 0px;
+    height: 0px;
+}
+
+body {
+    background-image: url('imagens/fundoQuiz.jpeg');
+    background-position: center;
+}
+
+.box {
+    position: absolute;
+    width: 564px;
+    height: 650px;
+    left: 401px;
+    top: 46px;
+    background: #BCE9F3;
+    box-shadow: 0px 2px 10px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+.bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.inria-sans-regular {
+    font-family: "Inria Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.title {
+    position: absolute;
+    width: 500px;
+    height: 71px;
+    left: 36px;
+    top: 28px;
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 90px;
+    line-height: 90px;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #207183;
+} 
+
+.info {
+    position: absolute;
+    width: 462px;
+    height: 136px;
+    left: 36px;
+    top: 220px;
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    /* or 125% */
+    display: flex;
+    align-items: center;
+    color: #207183;
+    mix-blend-mode: normal;
+}
+
+.question {
+    position: absolute;
+    width: 462px;
+    height: 136px;
+    left: 36px;
+    top: 436px;
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    /* or 125% */
+    display: flex;
+    align-items: center;
+    color: #207183;
+    mix-blend-mode: normal;
+}
+
+.select {
+    position: absolute;
+    width: 484px;
+    height: 62px;
+    left: 40px;
+    top: 560px;
+    background: #478F9F;
+    box-shadow: 0px 2px 10px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    outline: none;
+    border: 0px;
+}
+
+option[type="text"].options {
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    mix-blend-mode: normal;
+}
+
+.button {
+    position: absolute;
+    width: 130px;
+    height: 62px;
+    left: 1300px;
+    top: 640px;
+    justify-content: center;
+    background: #478F9F;
+    box-shadow: 0px 2px 10px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    outline: none;
+    border: 0px;
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 90px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #EFF9FB;
+}

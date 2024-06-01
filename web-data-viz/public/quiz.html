@@ -2,16 +2,21 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
-    <link rel="stylesheet" href="quiz.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <link rel="stylesheet" href="css/quiz.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <script src="./js/sessao.js"></script>
 </head>
 
 <body>
     <div id="data-container"></div>
     <div class="pagination">
-        <button id="next-btn">Próxima</button>
+        <button id="next-btn" class="button">Próxima</button>
     </div>
 
     <script src="pagination.js"></script>
@@ -69,8 +74,8 @@
           </select>
         </div>
     </div>`,
-    `<div class="suspensao">
-      <div class="tittle">Suspensão</div>
+    `<div class="box">
+      <div class="title">Suspensão</div>
       <div class="info">A suspensão é o sistema que conecta as rodas à carroceria do veículo, absorvendo impactos e garantindo estabilidade. Suspensão independente permite movimento individual das rodas, eixo rígido conecta diretamente as rodas mantendo-as paralelas, e eixo rígido com molas semi-elípticas usa molas de lâminas para suporte e amortecimento.</div>
       <div class="question">Se fosse para escolher, qual suspensão você preferiria:</div>
       <div class="options">
@@ -82,8 +87,8 @@
         </select>
       </div>
     </div>`,
-    `<div class="direcao">
-      <div class="tittle">Direção</div>
+    `<div class="box">
+      <div class="title">Direção</div>
       <div class="info">A direção é o sistema que permite ao motorista controlar a trajetória do veículo. Na direção pinhão e cremalheira, quando você vira o volante, um tipo de engrenagem move uma barra que faz as rodas virarem para onde você quer. Na direção setor e sem-fim, o volante está conectado a uma barra que faz as rodas se moverem, usando um formato de "roda dentada" para guiar esse movimento.</div>
       <div class="question">Escolha um tipo de direção:</div>
       <div class="options">
@@ -95,7 +100,7 @@
       </div>
     </div>`,
     `<div class="box">
-      <div class="tittle">Aceleração</div>
+      <div class="title">Aceleração</div>
       <div class="info">A aceleração é a rapidez com que um veículo aumenta sua velocidade. Ter uma aceleração muito alta pode proporcionar uma sensação de desempenho esportivo e facilitar ultrapassagens, mas também pode aumentar o consumo de combustível e exigir mais cuidado ao dirigir, especialmente em condições de aderência limitada.</div>
       <div class="question">Se fosse para você escolher, você gostaria de ter uma aceleração de:</div>
       <div class="options">
@@ -110,7 +115,7 @@
       </div>
     </div>`,
     `<div class="box">
-      <div class="tittle">Carroceria</div>
+      <div class="title">Carroceria</div>
       <div class="info">A carroceria de um carro é a estrutura externa que dá forma a ele. Um cupê é um carro fechado com dois ou quatro assentos e uma linha de teto comum. Um cupê conversível tem um teto retrátil que pode ser abaixado, enquanto um cupê conversível fastback tem um desenho de teto mais esportivo. Um roadster é um tipo de cupê conversível com dois assentos e uma capota removível.</div>
       <div class="question">Qual formato te agrada mais:</div>
       <div class="options">
@@ -124,7 +129,7 @@
       </div>
     </div>`,
     `<div class="box">
-      <div class="tittle">Velocidade Máx.</div>
+      <div class="title">Velocidade Máx.</div>
       <div class="info">A velocidade máxima de um veículo é a medida máxima de sua capacidade de deslocamento, com base na potência, torque e aerodinâmica do carro. Alcançar essa velocidade requer um equilíbrio entre potência, controle e segurança, e muitos veículos são projetados com limitadores para garantir que ninguém ultrapasse os limites seguros.</div>
       <div class="question">Você gostaria de ter um carro com velocidade máxima de:</div>
       <div class="options">
@@ -137,7 +142,7 @@
       </div>
     </div>`,
     `<div class="box">
-      <div class="tittle">Freios</div>
+      <div class="title">Freios</div>
       <div class="info">Os freios são sistemas que reduzem a velocidade ou param o veículo. Freios a disco nas quatro rodas oferecem melhor desempenho de frenagem e dissipação de calor. Já os freios só na frente com tambores atrás geralmente oferecem boa eficiência, enquanto tambores nas quatro rodas podem ser menos eficazes em frenagens intensas, mas são mais simples e econômicos.</div>
       <div class="question">Qual a sua preferência de freio:</div>
       <div class="options">
@@ -150,7 +155,7 @@
       </div>
     </div>`,
     `<div class="box">
-      <div class="tittle">Rotação</div>
+      <div class="title">Rotação</div>
       <div class="info">Rotação é a velocidade de rotação do motor, medida em rotações por minuto (RPM). Alta rotação significa que o motor gira rapidamente, proporcionando maior potência em velocidades altas, enquanto baixa rotação é mais eficiente em velocidades baixas, mas sacrifica o desempenho. Rotação variável refere-se à capacidade do motor de se ajustar sua de acordo com a demanda.</div>
       <div class="question">Escolha a rotação que te agrada mais:</div>
       <div class="options">
@@ -163,7 +168,7 @@
       </div>
     </div>`,
     `<div class="box">
-      <div class="tittle">Câmbio</div>
+      <div class="title">Câmbio</div>
       <div class="info">O câmbio é um sistema que permite mudar as marchas do veículo para controlar a velocidade e o torque do motor. Um câmbio manual de 4 velocidades oferece quatro opções de marcha, enquanto um câmbio manual de 3 velocidades ou automático Powerglide possui três. Um câmbio manual de 5 velocidades oferece uma marcha adicional, e um câmbio automático seleciona automaticamente as marchas.</div>
       <div class="question">Escolha um câmbio:</div>
       <div class="options">
