@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inria Sans", sans-serif;
+    background: #207183;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 5rem;
+}
+
+.icone {
+    position: absolute;
+    width: 34px;
+    height: 30px;
+    top: 36px;
+    left: 28px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 200px;
+}
+
+.container2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 200px;
+}
+
+.chart {
+    padding: 5rem;
+    border: 1px;
+    border-radius: 2rem;
+    background-color: #ADE0EB;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.8);
+    font-family: "Inria Sans", sans-serif;
+}
+
+.chart2 {
+    padding: 5rem;
+    border: 1px;
+    border-radius: 2rem;
+    background-color: #ADE0EB;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.8);
+    font-family: "Inria Sans", sans-serif;
+}
+
+.KPIs {
+    position: absolute;
+    width: 280px;
+    height: 600px;
+    left: 709px;
+    top: 95px;
+    display: flex;
+    flex-direction: column; /* Empilha as caixas verticalmente */
+    justify-content: space-between; /* Distribui o espaço verticalmente entre as caixas */
+    align-items: center; /* Alinha as caixas horizontalmente */
+}
+
+.box {
+    width: 300px;
+    height: 290px;
+    background: #BCE9F3;
+    box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.11);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    align-content: center;
+}
+
+.p {
+    width: 300px;
+    height: 60px;
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 45px;
+    text-align: center;
+    color: #113C46;
+    display: flex; /* Adiciona display flex */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: flex-start;
+}
+
+.KPIs2 {
+    position: absolute;
+    width: 280px;
+    height: 192px;
+    left: 1024px;
+    top: 95px;
+    display: flex;
+    flex-direction: column; /* Empilha as caixas verticalmente */
+    justify-content: space-between; /* Distribui o espaço verticalmente entre as caixas */
+    align-items: center; /* Alinha as caixas horizontalmente */
+}
+
+.box2 {
+    width: 280px;
+    height: 192px;
+    background: #BCE9F3;
+    box-shadow: 3px 4px 4px rgba(0, 0, 0, 0.11);
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.p2 {
+    width: 280px;
+    height: 60px;
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #113C46;
+    display: flex; /* Adiciona display flex */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: flex-start; /* Centraliza verticalmente */
+}
+
+.H1  {
+    width: 100%; /* Define a largura como 100% para ocupar todo o espaço da caixa */
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 55px;
+    justify-content: center;
+    line-height: 51px; /* Ajusta a altura da linha conforme necessário */
+    text-align: center; /* Alinha o texto horizontalmente ao centro */
+    color: #113C46;
+}
+
+.h1, .h2 {
+    width: 100%; /* Define a largura como 100% para ocupar todo o espaço da caixa */
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 55px;
+    line-height: 51px; /* Ajusta a altura da linha conforme necessário */
+    text-align: center; /* Alinha o texto horizontalmente ao centro */
+    color: #113C46;
+}

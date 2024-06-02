@@ -1,0 +1,628 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    /* Isso previne a rolagem horizontal */
+}
+
+.section {
+    position: relative;
+    width: 100%;
+    min-height: 1000vh;
+    padding: 100px;
+    display: flex;
+    z-index: -2;
+    background: #1F1F1F;
+}
+
+.container {
+    width: 100%;
+    /* Certifique-se de que o container ocupa 100% da largura */
+}
+
+.rectangles {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: calc(100% - 84px);
+    /* Ajuste para considerar a posição absoluta dos rectângulos */
+}
+
+.rectangle1,
+.rectangle2,
+.rectangle3 {
+    position: absolute;
+    width: 29px;
+    height: 100%;
+    background: #CD1515;
+    z-index: -1;
+}
+
+.rectangle1 {
+    left: 42px;
+    top: -6px;
+}
+
+.rectangle2 {
+    left: 79px;
+    top: -6px;
+}
+
+.rectangle3 {
+    left: 116px;
+    top: -6px;
+}
+
+.img {
+    margin-left: -60px;
+}
+
+/* @import url('https://fonts.googleapis.com/css2?family=Nome+da+Fonte');
+
+.bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+} */
+
+.title {
+    position: absolute;
+
+    height: 406px;
+    left: 820px;
+    top: -70px;
+    font-family: "Bebas Neue";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 210px;
+    line-height: 16%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #E4E4E4;
+    mix-blend-mode: difference;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.informacoes {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    Kelvin: 102px;
+}
+
+.lancamento {
+    /* lançamento */
+
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 229px;
+    top: 480px;
+
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+.texto {
+    /* laskdlkss */
+
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 229px;
+    top: 510px;
+    display: flex;
+
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+}
+
+.suspensao {
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 229px;
+    top: 600px;
+
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.texto4 {
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 229px;
+    top: 630px;
+    display: flex;
+
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.aceleracao {
+    position: absolute;
+    width: 200px;
+    height: 14px;
+    left: 229px;
+    top: 725px;
+
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.texto6 {
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 229px;
+    top: 750px;
+    display: flex;
+
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.velocidademax {
+    position: absolute;
+    width: 200px;
+    height: 14px;
+    left: 229px;
+    top: 850px;
+
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.texto8 {
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 229px;
+    top: 875px;
+    display: flex;
+
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.rotacao {
+    position: absolute;
+    width: 200px;
+    height: 14px;
+    left: 229px;
+    top: 980px;
+
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.texto10 {
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 229px;
+    top: 1008px;
+    display: flex;
+
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.torque {
+    /* lançamento */
+
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 600px;
+    top: 480px;
+
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+.texto1 {
+    /* laskdlkss */
+
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 600px;
+    top: 510px;
+    display: flex;
+
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+}
+
+.direcao {
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 600px;
+    top: 600px;
+
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.texto5 {
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 600px;
+    top: 630px;
+    display: flex;
+
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.carroceria {
+    position: absolute;
+    width: 200px;
+    height: 14px;
+    left: 600px;
+    top: 725px;
+
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.texto7 {
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 600px;
+    top: 750px;
+    display: flex;
+
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.freios {
+    position: absolute;
+    width: 200px;
+    height: 14px;
+    left: 600px;
+    top: 850px;
+
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.texto9 {
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 600px;
+    top: 875px;
+    display: flex;
+
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.cambio {
+    position: absolute;
+    width: 200px;
+    height: 14px;
+    left: 600px;
+    top: 980px;
+
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.texto11 {
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 600px;
+    top: 1008px;
+    display: flex;
+
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.combustivel {
+    /* lançamento */
+
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 1000px;
+    top: 480px;
+
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+.texto2 {
+    /* laskdlkss */
+
+    position: absolute;
+    width: 114px;
+    height: 14px;
+    left: 1000px;
+    top: 510px;
+    display: flex;
+
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+.capacidade {
+    /* lançamento */
+
+    position: absolute;
+    width: 200px;
+    height: 14px;
+    left: 1500px;
+    top: 480px;
+
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+
+}
+
+.texto3 {
+    /* laskdlkss */
+
+    position: absolute;
+    width: 100px;
+    height: 14px;
+    left: 1500px;
+    top: 510px;
+    display: flex;
+
+    font-family: 'Inria Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 100%;
+    /* or 100% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.chart-container {
+position: absolute;
+width: 469px;
+height: 298px;
+font-family: 'Bebas Neue';
+top: 600px;
+color: #373737;
+left: 1000px;
+
+
+}

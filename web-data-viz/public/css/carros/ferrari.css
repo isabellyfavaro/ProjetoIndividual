@@ -1,0 +1,201 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.icone {
+    position: absolute;
+    width: 34px;
+    height: 30px;
+    top: 36px;
+    left: 190px;
+}
+
+.section {
+    position: relative;
+    width: 100%;
+    min-height: 185vh;
+    padding: 100px;
+    z-index: -2;
+    background: #1F1F1F;
+}
+
+.container {
+    padding-top: 0;
+    margin-top: 0;
+    width: 100%;
+    height: 1150px;
+    position: absolute;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/*
+.rectangles {
+    position: absolute; /* Alterado para position absolute 
+    display: flex;
+    flex-direction: row; /* Alterado para row 
+    align-items: flex-start;
+    margin-bottom: 50px;
+    width: fit-content; /* Adicionado para ajustar a largura ao conteúdo 
+    top: 0; /* Ajusta para encostar no topo 
+    left: 20px; /* Ajusta para ficar mais à esquerda 
+}
+
+.rectangle1,
+.rectangle2,
+.rectangle3 {
+    width: 29px;
+    height: 1248px; /* Ajuste a altura conforme necessário 
+    background: #CD1515;
+    margin-right: 10px; /* Espaço entre os retângulos 
+    z-index: -1;
+}
+*/
+
+.rectangles {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /* Alinha os retângulos ao topo */
+    align-items: flex-end; /* Alinha os retângulos à direita */
+    position: fixed; /* Alterado para fixed */
+    top: 0; /* Alinha com o topo da tela */
+    right: 1370px; /* Alinha com o canto direito da tela */
+    height: 100vh; /* Definir a altura igual à altura da tela */
+    z-index: -1; //
+    * Ajuste o z-index para aparecer acima do conteúdo */
+}
+
+.rectangle1,
+.rectangle2,
+.rectangle3 {
+    width: 29px;
+    height: 1354px;
+    background: #CD1515;
+    margin-bottom: 2px;
+    margin-left: 13px; /* Espaçamento entre os retângulos */
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    justify-content: flex-end; /* Ajuste o alinhamento do grid para a direita */
+    z-index: 0; /* Ajuste o z-index para ficar atrás dos retângulos */
+}
+
+
+.rectangle3 {
+    width: 29px;
+    height: 1354px; /* Ajuste a altura conforme necessário */
+    background: #CD1515;
+    left: 2px; /* Espaçamento entre os retângulos */
+    z-index: -1;
+}
+
+
+.img {
+    margin-left: -60px;
+    margin-bottom: 50px;
+    margin-top: 100px;
+}
+
+.title {
+    position: absolute;
+    top: 20px;
+    right: 190px;
+    font-family: "Bebas Neue";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 165px;
+    line-height: 16%;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: #E4E4E4;
+    mix-blend-mode: difference;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: auto;
+    border: none; /* Remove any border */
+    outline: none; /* Remove any outline */
+    box-shadow: none; /* Remove any box shadow */
+}
+
+.texto {
+    color: #E4E4E4;
+    font-family: "Inria Sans";
+    font-size: 20px;
+    width: 210px;
+    text-align: center;
+}
+
+.informacoes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 113px;
+    justify-content: center;
+    margin-top: 29px; /* Adiciona margem superior para descer as informações */
+}
+
+.subtitulo {
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.informacoes div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart-container {
+    position: absolute;
+    width: 469px;
+    height: 298px;
+    font-family: 'Bebas Neue';
+    top: 900px; /* Ajusta a posição da chart-container */
+    color: #373737;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+:focus {
+    outline: none;
+}
+
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    margin-top: 25px;
+    margin-left: 160px;
+  }
+  
