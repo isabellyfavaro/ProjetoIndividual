@@ -19,13 +19,19 @@ body {
     left: 115px;
 }
 
+.botao {
+    border: none;
+    outline: none;
+    background: none;
+}
+
 .section {
     position: relative;
     width: 100%;
-    min-height: 185vh;
+    min-height: 200vh;
     padding: 100px;
     z-index: -2;
-    background: #1F1F1F;
+    background: #A5A5A0;
 }
 
 .container {
@@ -55,7 +61,7 @@ body {
     top: 0;
     right: 1370px;
     height: 100vh;
-    z-index: -1;
+    z-index: -1; 
 }
 
 .rectangle1,
@@ -63,7 +69,7 @@ body {
 .rectangle3 {
     width: 29px;
     height: 1354px;
-    background: #CD1515;
+    background: #D83A18;
     margin-bottom: 2px;
     margin-left: 13px;
 }
@@ -84,37 +90,45 @@ body {
 .rectangle3 {
     width: 29px;
     height: 1354px;
-    background: #CD1515;
+    background: #D83A18;
     left: 2px;
     z-index: -1;
 }
 
 
 .img {
-    margin-left: -60px;
-    margin-bottom: 50px;
-    margin-top: 100px;
+    margin-left: -132px;
+    margin-bottom: 40px;
+    margin-top: 21px;
 }
+
 
 .title {
     position: absolute;
     top: 20px;
-    right: 190px;
+    right: 165px;
     font-family: "Bebas Neue";
     font-style: normal;
     font-weight: 400;
-    font-size: 165px;
-    line-height: 16%;
-    display: flex;
-    align-items: center;
+    font-size: 150px;
+    line-height: 1; /* Altura da linha reduzida */
     text-align: right;
-    color: #E4E4E4;
-    mix-blend-mode: difference;
+    color: #000000;
+    mix-blend-mode: normal;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    width: auto;
+    white-space: pre-line; /* Garante que as quebras de linha sejam respeitadas */
+    width: 725px;
     border: none;
     outline: none;
     box-shadow: none;
+    margin-top: -205px;
+    display: flow;
+}
+
+.small-text {
+    color: #000000;
+    display: block;
+    line-height: 0.8; /* Altura da linha específica para o texto menor */
 }
 
 .texto {
@@ -175,27 +189,27 @@ canvas {
     margin-left: 160px;
 }
 
-
 .icone {
     position: relative;
 }
 
+#iconeMais {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
 #listaTelas {
-    display: none;
-    /* Ocultar inicialmente */
+    display: none; /* Ocultar inicialmente */
     position: absolute;
-    top: 20px;
-    /* Ajuste conforme necessário */
-    left: 50px;
-    /* Ajuste conforme necessário */
+    top: 40px; /* Ajuste conforme necessário */
+    left: 0; /* Ajuste conforme necessário */
     background: white;
     border: 1px solid #ccc;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    border: none;
-    outline: none;
-    width: 205px;
 }
 
 #listaTelas ul {
@@ -206,10 +220,19 @@ canvas {
 
 #listaTelas li {
     padding: 8px 0;
-    border-bottom: 0;
+    border-bottom: 1px solid #ccc;
     font-family: "Bebas Neue", sans-serif;
 }
 
 #listaTelas li:last-child {
     border-bottom: none;
+}
+
+#listaTelas li a {
+    text-decoration: none;
+    color: black;
+}
+
+#listaTelas li a:hover {
+    text-decoration: underline;
 }

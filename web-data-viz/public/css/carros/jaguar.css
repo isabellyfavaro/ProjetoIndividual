@@ -22,10 +22,10 @@ body {
 .section {
     position: relative;
     width: 100%;
-    min-height: 185vh;
+    min-height: 192vh;
     padding: 100px;
     z-index: -2;
-    background: #1F1F1F;
+    background: #A5A5A0;
 }
 
 .container {
@@ -63,7 +63,7 @@ body {
 .rectangle3 {
     width: 29px;
     height: 1354px;
-    background: #CD1515;
+    background: #8C2828;
     margin-bottom: 2px;
     margin-left: 13px;
 }
@@ -84,37 +84,48 @@ body {
 .rectangle3 {
     width: 29px;
     height: 1354px;
-    background: #CD1515;
+    background: #8C2828;
     left: 2px;
     z-index: -1;
 }
 
 
 .img {
-    margin-left: -60px;
-    margin-bottom: 50px;
-    margin-top: 100px;
+    margin-left: -132px;
+    margin-bottom: 40px;
+    margin-top: 21px;
 }
+
 
 .title {
     position: absolute;
     top: 20px;
-    right: 190px;
+    right: 165px;
     font-family: "Bebas Neue";
     font-style: normal;
     font-weight: 400;
-    font-size: 165px;
-    line-height: 16%;
-    display: flex;
-    align-items: center;
+    font-size: 150px;
+    line-height: 1;
+    /* Altura da linha reduzida */
     text-align: right;
-    color: #E4E4E4;
-    mix-blend-mode: difference;
+    color: #000000;
+    mix-blend-mode: normal;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    width: auto;
+    white-space: pre-line;
+    /* Garante que as quebras de linha sejam respeitadas */
+    width: 725px;
     border: none;
     outline: none;
     box-shadow: none;
+    margin-top: -205px;
+    display: flow;
+}
+
+.small-text {
+    color: #000000;
+    display: block;
+    line-height: 0.8;
+    /* Altura da linha específica para o texto menor */
 }
 
 .texto {

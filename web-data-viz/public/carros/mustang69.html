@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ford Mustang 69</title>
+    <link rel="stylesheet" href="../css/carros/mustang69.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/chart.js@2.8.0/dist/Chart.bundle.js"></script>
+    <script src="https://unpkg.com/chartjs-gauge@0.3.0/dist/chartjs-gauge.js"></script>
+</head>
+
+<body>
+
+    <div class="section">
+        <div class="icone">
+            <button onclick="menu()" id="iconeMais" class="botao">
+                <img src="../css/imagens/icone.png" alt="Mais">
+            </button>
+            <div class="listaTelas" id="listaTelas" style="display: none;">
+                <ul>
+                    <li><a href="../dashboard.html">Dashboard</a></li>
+                    <li><a href="../carros/etype.html">JAGUAR E-TYPE</a></li>
+                    <li><a href="../carros/corvette.html">CHEVROLET CORVETTE STINGRAY (C2)</a></li>
+                    <li><a href="../carros/ferrari.html">FERRARI 250 GTO</a></li>
+                    <li><a href="../carros/belair.html">CHEVROLET BEL AIR (TRI-FIVE)</a></li>
+                    <li><a href="../carros/lamborghini.html">LAMBORGHINI MIURA</a></li>
+                    <li><a href="../carros/bmw.html">BMW 507</a></li>
+                    <li><a href="../carros/jaguar.html">JAGUAR XK120</a></li>
+                    <li><a href="../carros/mustang69.html">FORD MUSTANG 69</a></li>
+                    <li><a href="../carros/aston.html">ASTON MARTIN DB5</a></li>
+                    <li><a href="../carros/mustangFG.html">FORD MUSTANG (FIRST GENERATION)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="title">
+                Ford <span style="color: #D83A18">Mustang 69</span>
+            </div>
+            <div class="rectangles">
+                <div class="rectangle1"></div>
+                <div class="rectangle2"></div>
+                <div class="rectangle3"></div>
+            </div>
+            <img src="../css/imagens/mustang69.png" class="img">
+            <div class="informacoes grid">
+                <div>
+                    <div class="subtitulo">LANÇAMENTO</div>
+                    <div class="texto">1969</div>
+                </div>
+                <div>
+                    <div class="subtitulo">TORQUE</div>
+                    <div class="texto">610 Nm (428 Cobra Jet)</div>
+                </div>
+                <div>
+                    <div class="subtitulo">COMBUSTÍVEL</div>
+                    <div class="texto">Gasolina</div>
+                </div>
+                <div>
+                    <div class="subtitulo">CAPACIDADE DO MOTOR</div>
+                    <div class="texto">4.9L / 5.8L / 6.4L / 7.0L V8</div>
+                </div>
+                <div>
+                    <div class="subtitulo">SUSPENSÃO</div>
+                    <div class="texto">Independente na frente, eixo rígido atrás</div>
+                </div>
+                <div>
+                    <div class="subtitulo">DIREÇÃO</div>
+                    <div class="texto">Setor e sem-fim</div>
+                </div>
+                <div>
+                    <div class="subtitulo">ACELERAÇÃO 100KM/H</div>
+                    <div class="texto">6.4 segundos</div>
+                </div>
+                <div>
+                    <div class="subtitulo">CARROCERIA</div>
+                    <div class="texto">Fastback / Cupê / Conversível</div>
+                </div>
+                <div>
+                    <div class="subtitulo">VELOCIDADE MÁXIMA</div>
+                    <div class="texto">220 km/h</div>
+                </div>
+                <div>
+                    <div class="subtitulo">FREIOS</div>
+                    <div class="texto">Tambores nas quatro rodas, discos opcionais na frente</div>
+                </div>
+                <div>
+                    <div class="subtitulo">ROTAÇÃO</div>
+                    <div class="texto">Alta rotatividade</div>
+                </div>
+                <div>
+                    <div class="subtitulo">CÂMBIO</div>
+                    <div class="texto">Manual de 3/4 velocidades / Automático
+                    </div>
+                </div>
+            </div>
+            <div id="canvas-holder" style="width:500px">
+                <canvas id="chart"></canvas>
+            </div>
+            <div class="chart-container" class="subtitulo"></div>
+        </div>
+    </div>
+
+    <script>
+        function menu() {
+            document.addEventListener('DOMContentLoaded'), function () {
+                iconeMais.addEventListener('click', function () {
+                    console.log("Botão clicado");
+                    if (listaTelas.style.display === 'none' || listaTelas.style.display === '') {
+                        listaTelas.style.display = 'block';
+                    } else {
+                        listaTelas.style.display = 'none';
+                    }
+                })};
+            
+
+            var randomScalingFactor = function () {
+                return Math.round(Math.random() * 100);
+            };
+
+            var randomData = function () {
+                return [
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor(),
+                    randomScalingFactor()
+                ];
+            };
+
+            var randomValue = function (data) {
+                return Math.max.apply(null, data) * Math.random();
+            };
+
+            var data = randomData();
+            var value = randomValue(data);
+
+            var config = {
+                type: 'gauge',
+                data: {
+                    datasets: [{
+                        data: data,
+                        value: value,
+                        backgroundColor: ['green', 'yellow', 'orange', 'red'],
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                title: {
+                                    display: true,
+                                    text: 'Gauge chart'
+                                },
+                                layout: {
+                                    padding: {
+                                        bottom: 30
+                                    }
+                                },
+                                needle: {
+                                    radiusPercentage: 2,
+                                    widthPercentage: 3.2,
+                                    lengthPercentage: 80,
+                                    color: 'rgba(0, 0, 0, 1)'
+                                },
+                                valueLabel: {
+                                    formatter: Math.round
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            var randomData = function () {
+                var step = 100 / 10;
+                var data = [];
+
+                for (var i = 0; i <= 10; i++) {
+                    data.push(Math.round(step * i));
+                }
+
+                return data;
+            };
+
+            var currentIndex = 0;
+
+            var nextData = function () {
+                var data = randomData();
+                var current = currentIndex % data.length;
+                currentIndex++;
+                return data[current];
+            };
+
+            var ctx = document.getElementById('chart').getContext('2d');
+            window.myGauge = new Chart(ctx, config);
+
+            setInterval(function () {
+                var value = nextData();
+                config.data.datasets[0].value = value;
+                window.myGauge.update();
+            }, 6400);
+
+            setInterval(function () {
+                config.data.datasets.forEach(function (dataset) {
+                    dataset.data = randomData();
+                    dataset.value = randomValue(dataset.data);
+                });
+
+                window.myGauge.update();
+            }, 6400);
+        };
+    </script>
+</body>
+
+</html>

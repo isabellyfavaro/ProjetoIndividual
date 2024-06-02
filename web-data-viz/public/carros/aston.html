@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ferrari 250 GTO</title>
-  <link rel="stylesheet" href="../css/carros/ferrari.css">
+  <title>Aston Martin DB5</title>
+  <link rel="stylesheet" href="../css/carros/aston.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -40,22 +40,22 @@
     </div>
 
     <div class="container">
-      <div class="title">Ferrari <span style="color: #CD1515"> 250 GTO</span></style>
-      </div>
+      <div class="title">
+        Aston Martin <span style="color: #613E27">DB5</span></div>
       <div class="rectangles">
         <div class="rectangle1"></div>
         <div class="rectangle2"></div>
         <div class="rectangle3"></div>
       </div>
-      <img src="../css/imagens/ferrari.png" class="img">
+      <img src="../css/imagens/aston.png" class="img">
       <div class="informacoes grid">
         <div>
           <div class="subtitulo">LANÇAMENTO</div>
-          <div class="texto">1962</div>
+          <div class="texto">1963</div>
         </div>
         <div>
           <div class="subtitulo">TORQUE</div>
-          <div class="texto">294 Nm</div>
+          <div class="texto">390 Nm</div>
         </div>
         <div>
           <div class="subtitulo">COMBUSTÍVEL</div>
@@ -63,11 +63,11 @@
         </div>
         <div>
           <div class="subtitulo">CAPACIDADE DO MOTOR</div>
-          <div class="texto">3.0L V12 </div>
+          <div class="texto">4.0L I6</div>
         </div>
         <div>
           <div class="subtitulo">SUSPENSÃO</div>
-          <div class="texto">Independente na frente, eixo rígido atrás</div>
+          <div class="texto">Independente na frente e atrás</div>
         </div>
         <div>
           <div class="subtitulo">DIREÇÃO</div>
@@ -75,7 +75,7 @@
         </div>
         <div>
           <div class="subtitulo">ACELERAÇÃO 100KM/H</div>
-          <div class="texto">5.4 segundos </div>
+          <div class="texto">8 segundos</div>
         </div>
         <div>
           <div class="subtitulo">CARROCERIA</div>
@@ -83,7 +83,7 @@
         </div>
         <div>
           <div class="subtitulo">VELOCIDADE MÁXIMA</div>
-          <div class="texto">280 km/h</div>
+          <div class="texto">233 km/h </div>
         </div>
         <div>
           <div class="subtitulo">FREIOS</div>
@@ -95,7 +95,8 @@
         </div>
         <div>
           <div class="subtitulo">CÂMBIO</div>
-          <div class="texto">Manual de 5 velocidades</div>
+          <div class="texto">Manual de 5 velocidades
+          </div>
         </div>
       </div>
       <div id="canvas-holder" style="width:500px">
@@ -229,7 +230,7 @@
       var value = nextData();
       config.data.datasets[0].value = value;
       window.myGauge.update();
-    }, 5600);
+    }, 6400);
   };
 
 
@@ -246,8 +247,7 @@
       });
 
       window.myGauge.update();
-    }, 5400);
+    }, 6400);
   };
-
 
 </script>

@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ferrari 250 GTO</title>
-  <link rel="stylesheet" href="../css/carros/ferrari.css">
+  <title>Chevrolet Corvette Stingray c2</title>
+  <link rel="stylesheet" href="../css/carros/corvette.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -18,44 +18,47 @@
 
 <body>
   <div class="section">
+   
     <div class="icone">
-      <button class="botao" id="iconeMais">
+      <button id="iconeMais">
         <img src="../css/imagens/icone.png" alt="Mais">
       </button>
       <div class="listaTelas" id="listaTelas">
         <ul>
-          <li><a href="../dashboard.html">Dashboard</a></li>
-          <li><a href="../carros/etype.html">JAGUAR E-TYPE</a></li>
-          <li><a href="../carros/corvette.html">CHEVROLET CORVETTE STINGRAY (C2)</a></li>
-          <li><a href="../carros/ferrari.html">FERRARI 250 GTO</a></li>
-          <li><a href="../carros/belair.html">CHEVROLET BEL AIR (TRI-FIVE)</a></li>
-          <li><a href="../carros/lamborghini.html">LAMBORGHINI MIURA</a></li>
-          <li><a href="../carros/bmw.html">BMW 507</a></li>
-          <li><a href="../carros/jaguar.html">JAGUAR XK120</a></li>
-          <li><a href="../carros/mustang69.html">FORD MUSTANG 69</a></li>
-          <li><a href="../carros/aston.html">ASTON MARTIN DB5</a></li>
-          <li><a href="../carros/mustangFG.html">FORD MUSTANG (FIRST GENERATION)</a></li>
-        </ul>
+            <li><a href="../dashboard.html">Dashboard</a></li>
+            <li><a href="../carros/etype.html">JAGUAR E-TYPE</a></li>
+            <li><a href="../carros/corvette.html">CHEVROLET CORVETTE STINGRAY (C2)</a></li>
+            <li><a href="../carros/ferrari.html">FERRARI 250 GTO</a></li>
+            <li><a href="../carros/belair.html">CHEVROLET BEL AIR (TRI-FIVE)</a></li>
+            <li><a href="../carros/lamborghini.html">LAMBORGHINI MIURA</a></li>
+            <li><a href="../carros/bmw.html">BMW 507</a></li>
+            <li><a href="../carros/jaguar.html">JAGUAR XK120</a></li>
+            <li><a href="../carros/mustang69.html">FORD MUSTANG 69</a></li>
+            <li><a href="../carros/aston.html">ASTON MARTIN DB5</a></li>
+            <li><a href="../carros/mustangFG.html">FORD MUSTANG (FIRST GENERATION)</a></li>
+          </ul>
       </div>
-    </div>
+  </div>
 
     <div class="container">
-      <div class="title">Ferrari <span style="color: #CD1515"> 250 GTO</span></style>
+      <div class="title">
+        Chevrolet
+        <span style="color: #000000">Corvette Stingray <br>c2</span>
       </div>
       <div class="rectangles">
         <div class="rectangle1"></div>
         <div class="rectangle2"></div>
         <div class="rectangle3"></div>
       </div>
-      <img src="../css/imagens/ferrari.png" class="img">
+      <img src="../css/imagens/corvette.png" class="img">
       <div class="informacoes grid">
         <div>
           <div class="subtitulo">LANÇAMENTO</div>
-          <div class="texto">1962</div>
+          <div class="texto">1963</div>
         </div>
         <div>
           <div class="subtitulo">TORQUE</div>
-          <div class="texto">294 Nm</div>
+          <div class="texto">488 Nm (7.0L)</div>
         </div>
         <div>
           <div class="subtitulo">COMBUSTÍVEL</div>
@@ -63,11 +66,11 @@
         </div>
         <div>
           <div class="subtitulo">CAPACIDADE DO MOTOR</div>
-          <div class="texto">3.0L V12 </div>
+          <div class="texto">5.3L / 6.2L / 7.0L V8</div>
         </div>
         <div>
           <div class="subtitulo">SUSPENSÃO</div>
-          <div class="texto">Independente na frente, eixo rígido atrás</div>
+          <div class="texto">Independente nas quatro rodas</div>
         </div>
         <div>
           <div class="subtitulo">DIREÇÃO</div>
@@ -75,7 +78,7 @@
         </div>
         <div>
           <div class="subtitulo">ACELERAÇÃO 100KM/H</div>
-          <div class="texto">5.4 segundos </div>
+          <div class="texto">5.6 segundos</div>
         </div>
         <div>
           <div class="subtitulo">CARROCERIA</div>
@@ -83,11 +86,11 @@
         </div>
         <div>
           <div class="subtitulo">VELOCIDADE MÁXIMA</div>
-          <div class="texto">280 km/h</div>
+          <div class="texto">225 km/h</div>
         </div>
         <div>
           <div class="subtitulo">FREIOS</div>
-          <div class="texto">Discos nas quatro rodas</div>
+          <div class="texto">Discos na frente, tambores atrás</div>
         </div>
         <div>
           <div class="subtitulo">ROTAÇÃO</div>
@@ -95,7 +98,7 @@
         </div>
         <div>
           <div class="subtitulo">CÂMBIO</div>
-          <div class="texto">Manual de 5 velocidades</div>
+          <div class="texto">Manual de 4 velocidades</div>
         </div>
       </div>
       <div id="canvas-holder" style="width:500px">
@@ -114,13 +117,14 @@
     var listaTelas = document.getElementById('listaTelas');
 
     iconeMais.addEventListener('click', function () {
-      if (listaTelas.style.display === 'none' || listaTelas.style.display === '') {
-        listaTelas.style.display = 'block';
-      } else {
-        listaTelas.style.display = 'none';
-      }
+        if (listaTelas.style.display === 'none' || listaTelas.style.display === '') {
+            listaTelas.style.display = 'block';
+        } else {
+            listaTelas.style.display = 'none';
+        }
     });
-  });
+});
+
 
   var randomScalingFactor = function () {
     return Math.round(Math.random() * 100);
@@ -248,6 +252,5 @@
       window.myGauge.update();
     }, 5400);
   };
-
 
 </script>
