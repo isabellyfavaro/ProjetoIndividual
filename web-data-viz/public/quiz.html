@@ -14,26 +14,24 @@
 </head>
 
 <body>
-    <div id="data-container"></div>
-    <div class="pagination">
-        <button id="next-btn" class="button">Próxima</button>
-    </div>
+  <div id="data-container"></div>
+  <div class="pagination">
+    <button id="next-btn" class="button">Próxima</button>
+  </div>
 
-    <script src="pagination.js"></script>
+  <script src="pagination.js"></script>
 </body>
 
 </html>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const dataContainer = document.getElementById('data-container');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        let currentPage = 1;
+  document.addEventListener('DOMContentLoaded', () => {
+    const dataContainer = document.getElementById('data-container');
+    const nextBtn = document.getElementById('next-btn');
+    let currentPage = 1;
 
-        // Dados simulados com o conteúdo das páginas
-        const data = [
-            `<div class="box">
+    const data = [
+      `<div class="box">
             <div class="title">Lançamento</div>
             <div class="info">O lançamento de um carro refere-se ao ano em que um modelo específico de veículo foi introduzido no mercado. É o momento em que o carro é apresentado ao público e disponibilizado para venda pela primeira vez.</div>
             <div class="question">Se fosse para você escolher, você gostaria de ter um carro lançado em que década:</div>
@@ -46,7 +44,7 @@
                 </select>
             </div>
         </div>`,
-            `<div class="box">
+      `<div class="box">
             <div class="title">Torque</div>
             <div class="info">O torque em um carro é a força de rotação que o motor produz, medida em Newton-metros (Nm) ou libras-pé (lb-ft). É essa força que impulsiona o carro para frente e aceleração ele. Se para apertar um parafuso você precisa girar uma chave com mais força, no carro você precisa de mais torque para fazer as rodas se moverem.</div>
             <div class="question">Se fosse para você escolher, você gostaria de ter um carro com um torque de:</div>
@@ -60,21 +58,20 @@
                 </select>
             </div>
         </div>`,
-            ` <div class="box">
+      ` <div class="box">
       <div class="title">Motor</div>
       <div class="info">A capacidade do motor (cilindrada), é o volume total dos cilindros do motor onde ocorre a combustão, medida em litros (L). Ela indica o tamanho do motor e sua potencial capacidade de produzir potência e torque. Quanto maior ela for, maior serão esses dois. No entanto, motores maiores também tendem a ser menos eficientes em termos de consumo de combustível e podem ser mais pesados.</div>
-        <div class="question">Se fosse para você escolher, você gostaria de ter um carro com um torque de:</div>
+        <div class="question">Se fosse para você escolher, você gostaria de ter uma capacidade de:</div>
         <div class="options">
           <select id="select_motor" class="select">
             <option value="#"></option>
-            <option value="1">200 à 300</option>
-            <option value="2">300 à 400</option>
-            <option value="3">400 à 500</option>
-            <option value="4">Variável</option>
+            <option value="1">de 2 a 3L</option>
+            <option value="2">de 3 a 4L</option>
+            <option value="3">mais de 4L</option>
           </select>
         </div>
     </div>`,
-    `<div class="box">
+      `<div class="box">
       <div class="title">Suspensão</div>
       <div class="info">A suspensão é o sistema que conecta as rodas à carroceria do veículo, absorvendo impactos e garantindo estabilidade. Suspensão independente permite movimento individual das rodas, eixo rígido conecta diretamente as rodas mantendo-as paralelas, e eixo rígido com molas semi-elípticas usa molas de lâminas para suporte e amortecimento.</div>
       <div class="question">Se fosse para escolher, qual suspensão você preferiria:</div>
@@ -87,7 +84,7 @@
         </select>
       </div>
     </div>`,
-    `<div class="box">
+      `<div class="box">
       <div class="title">Direção</div>
       <div class="info">A direção é o sistema que permite ao motorista controlar a trajetória do veículo. Na direção pinhão e cremalheira, quando você vira o volante, um tipo de engrenagem move uma barra que faz as rodas virarem para onde você quer. Na direção setor e sem-fim, o volante está conectado a uma barra que faz as rodas se moverem, usando um formato de "roda dentada" para guiar esse movimento.</div>
       <div class="question">Escolha um tipo de direção:</div>
@@ -99,7 +96,7 @@
         </select>
       </div>
     </div>`,
-    `<div class="box">
+      `<div class="box">
       <div class="title">Aceleração</div>
       <div class="info">A aceleração é a rapidez com que um veículo aumenta sua velocidade. Ter uma aceleração muito alta pode proporcionar uma sensação de desempenho esportivo e facilitar ultrapassagens, mas também pode aumentar o consumo de combustível e exigir mais cuidado ao dirigir, especialmente em condições de aderência limitada.</div>
       <div class="question">Se fosse para você escolher, você gostaria de ter uma aceleração de:</div>
@@ -114,7 +111,7 @@
         </select>
       </div>
     </div>`,
-    `<div class="box">
+      `<div class="box">
       <div class="title">Carroceria</div>
       <div class="info">A carroceria de um carro é a estrutura externa que dá forma a ele. Um cupê é um carro fechado com dois ou quatro assentos e uma linha de teto comum. Um cupê conversível tem um teto retrátil que pode ser abaixado, enquanto um cupê conversível fastback tem um desenho de teto mais esportivo. Um roadster é um tipo de cupê conversível com dois assentos e uma capota removível.</div>
       <div class="question">Qual formato te agrada mais:</div>
@@ -128,7 +125,7 @@
         </select>
       </div>
     </div>`,
-    `<div class="box">
+      `<div class="box">
       <div class="title">Velocidade Máx.</div>
       <div class="info">A velocidade máxima de um veículo é a medida máxima de sua capacidade de deslocamento, com base na potência, torque e aerodinâmica do carro. Alcançar essa velocidade requer um equilíbrio entre potência, controle e segurança, e muitos veículos são projetados com limitadores para garantir que ninguém ultrapasse os limites seguros.</div>
       <div class="question">Você gostaria de ter um carro com velocidade máxima de:</div>
@@ -141,7 +138,7 @@
         </select>
       </div>
     </div>`,
-    `<div class="box">
+      `<div class="box">
       <div class="title">Freios</div>
       <div class="info">Os freios são sistemas que reduzem a velocidade ou param o veículo. Freios a disco nas quatro rodas oferecem melhor desempenho de frenagem e dissipação de calor. Já os freios só na frente com tambores atrás geralmente oferecem boa eficiência, enquanto tambores nas quatro rodas podem ser menos eficazes em frenagens intensas, mas são mais simples e econômicos.</div>
       <div class="question">Qual a sua preferência de freio:</div>
@@ -154,7 +151,7 @@
         </select>
       </div>
     </div>`,
-    `<div class="box">
+      `<div class="box">
       <div class="title">Rotação</div>
       <div class="info">Rotação é a velocidade de rotação do motor, medida em rotações por minuto (RPM). Alta rotação significa que o motor gira rapidamente, proporcionando maior potência em velocidades altas, enquanto baixa rotação é mais eficiente em velocidades baixas, mas sacrifica o desempenho. Rotação variável refere-se à capacidade do motor de se ajustar sua de acordo com a demanda.</div>
       <div class="question">Escolha a rotação que te agrada mais:</div>
@@ -167,7 +164,7 @@
         </select>
       </div>
     </div>`,
-    `<div class="box">
+      `<div class="box">
       <div class="title">Câmbio</div>
       <div class="info">O câmbio é um sistema que permite mudar as marchas do veículo para controlar a velocidade e o torque do motor. Um câmbio manual de 4 velocidades oferece quatro opções de marcha, enquanto um câmbio manual de 3 velocidades ou automático Powerglide possui três. Um câmbio manual de 5 velocidades oferece uma marcha adicional, e um câmbio automático seleciona automaticamente as marchas.</div>
       <div class="question">Escolha um câmbio:</div>
@@ -180,29 +177,98 @@
           <option value="4">Automático</option>
         </select>
       </div>
-    </div>`     
-];
+    </div>
+    
+    <div class="pagination">
+    <button onclick="finalizar()" id="next-btn" class="button">Finalizar</button>
+  </div>`
+    ];
 
-        // Função para renderizar a página atual
-        function renderPage() {
-            dataContainer.innerHTML = data[currentPage - 1];
+    function renderPage() {
+      dataContainer.innerHTML = data[currentPage - 1];
+      if (currentPage === data.length) {
+        nextBtn.textContent = 'Finalizar';
+        nextBtn.addEventListener('click', finalizar);
+      } else {
+        nextBtn.textContent = 'Próxima';
+      }
+    }
 
-            // Atualizar botões de navegação
-
-            nextBtn.classList.toggle('disabled', currentPage === data.length);
-        }
-
-        // Funções para mudar a página
-
-        nextBtn.addEventListener('click', () => {
-            if (currentPage < data.length) {
-                currentPage++;
-                renderPage();
-            }
-        });
-
-        // Inicializar a primeira página
+    nextBtn.addEventListener('click', () => {
+      if (currentPage < data.length) {
+        currentPage++;
         renderPage();
+      }
     });
 
+    renderPage();
+  });
+
+  const listaResultados = ['Ferrari', 'Aston', 'Bel Air', 'BMW', 'Corvette', 'E-TYPE', 'Jaguar', 'Lamborghini', 'Mustang 69', 'Mustang First Generation'];
+  const listaValores = ['415', '530', '670', '575', '570', '510', '550', '470', '720', '755'];
+  let resultado = 0;
+
+  function finalizar() {
+    calcular ()
+
+    const ranges = [
+      { min: 415, max: 470, url: "/carros/ferrari.html" },
+      { min: 470, max: 510, url: "/carros/lamborghini.html" },
+      { min: 510, max: 530, url: "/carros/etype.html" },
+      { min: 530, max: 550, url: "/carros/aston.html" },
+      { min: 550, max: 570, url: "/carros/jaguar.html" },
+      { min: 570, max: 575, url: "/carros/corvette.html" },
+      { min: 575, max: 670, url: "/carros/bwm.html" },
+      { min: 670, max: 720, url: "/carros/belair.html" },
+      { min: 720, max: 755, url: "/carros/mustang69.html" },
+      { min: 755, max: Infinity, url: "/carros/mustangFG.html" }
+    ];
+
+    for (const range of ranges) {
+      if (resultado >= range.min && resultado < range.max) {
+        window.location = range.url;
+        break;
+      }
+    }
+  }
+
+  function calcular() {
+    const valores = [
+      parseInt(select_lancamento.value),
+      parseInt(select_torque.value),
+      parseInt(select_motor.value),
+      parseInt(select_suspensao.value),
+      parseInt(select_direcao.value),
+      parseInt(select_aceleracao.value),
+      parseInt(select_carroceria.value),
+      parseInt(select_velocidade.value),
+      parseInt(select_freios.value),
+      parseInt(select_rotacao.value),
+      parseInt(select_cambio.value)
+    ];
+
+    const pontos = [
+      [10, 50, 90],
+      [10, 45, 75, 100],
+      [10, 50, 90],
+      [10, 50, 90],
+      [10, 90],
+      [10, 30, 50, 70, 90, 110],
+      [10, 45, 75, 100],
+      [10, 50, 90],
+      [10, 50, 90],
+      [10, 50, 90],
+      [10, 45, 75, 100]
+    ];
+
+    for (let i = 0; i < valores.length; i++) {
+      const val = valores[i] - 1;
+      if (val >= 0 && val < pontos[i].length) {
+        resultado += pontos[i][val];
+      } else {
+        resultado += pontos[i][pontos[i].length - 1];
+      }
+    }
+
+  }
 </script>

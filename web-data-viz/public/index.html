@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,52 +14,83 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        .cabecalho a {
-            cursor: pointer;
-            margin-right: 20px;
-            text-decoration: none;
-            color: black;
-        }
-    </style>
 </head>
+
 <body>
     <div class="cabecalho">
-        <a href="#inicio" class="cabecalho1">Inicio</a>
-        <a href="#sobre" class="cabecalho2">Sobre</a>
-        <a href="#historia" class="cabecalho3">História</a>
-        <a href="#teste" class="cabecalho4">Teste</a>
-        <a href="#carros" class="cabecalho5">Carros</a>
-    </div>
+        <button onclick="inicio()" class="cabecalho1">Inicio</button>
+        <button onclick="sobre()" class="cabecalho2">Sobre</button>
+        <button onclick="historia()" class="cabecalho3">História</button>
+        <button onclick="teste()" class="cabecalho4">Teste</button>
+        <button onclick="cadastro()" class="cabecalho5">Cadastro</button>
 
-    <div class="linha"></div>
+        <div class="linha"></div>
+    </div>
 
     <div id="inicio" class="titulo">Fabbro</div>
     <div class="img"><img src="../public/css/imagens/index.png" alt="Imagem Fabbro"></div>
     <div class="slogan">A Jornada dos <br> Carros Começa Aqui: <br> Descubra o Seu Favorito!</div>
 
     <div id="sobre" class="subtitulo1">Sobre</div>
-    <p class="texto1D">Apesar da importância dos carros, eles ainda são vistos de maneira muito restrita. Historicamente, possuir um carro era um símbolo de poder econômico, e era algo exclusivo para um determinado grupo. Isso criou uma barreira para várias pessoas, que nunca tiveram a oportunidade ou o interesse de aprender sobre automóveis, limitando o acesso ao conhecimento e à experiência prática para muitos.<vr Reconhecendo essa disparidade, o Fabbro surge com o propósito a introduzir as pessoas ao mundo dos automóveis, fornecendo informações básicas sobre carros, para que qualquer um interessado possa se inserir nesse universo.</p>
+    <p class="texto1D">Apesar da importância dos carros, eles ainda são vistos de maneira muito restrita.
+        Historicamente, possuir um carro era um símbolo de poder econômico, e era algo exclusivo para um determinado
+        grupo. Isso criou uma barreira para várias pessoas, que nunca tiveram a oportunidade ou o interesse de aprender
+        sobre automóveis, limitando o acesso ao conhecimento e à experiência prática para muitos.<br> Reconhecendo essa
+        disparidade, o Fabbro surge com o propósito a introduzir as pessoas ao mundo dos automóveis, fornecendo
+        informações básicas sobre carros, para que qualquer um interessado possa se inserir nesse universo.</p>
 
     <div id="historia" class="subtitulo2">História</div>
-    <p class="texto1E">Antes dos carros modernos, a humanidade dependia de meios de transporte como carruagens puxadas por cavalos, que remontam a milhares de anos. No entanto, esses veículos tinham limitações significativas em termos de velocidade, eficiência e alcance.</p>
-    <p class="texto2D">No final do século XVIII e início do século XIX, experimentos com motores a vapor começaram a ser realizados. Pessoas como Nicolas-Joseph Cugnot construíram os primeiros veículos autopropulsionados, mas sua viabilidade prática era limitada devido ao tamanho e peso dos motores a vapor.</p>
+    <p class="texto1E">Antes dos carros modernos, a humanidade dependia de meios de transporte como carruagens
+        puxadas por cavalos, que remontam a milhares de anos. No entanto, esses veículos tinham limitações
+        significativas em termos de velocidade, eficiência e alcance.</p>
+    <p class="texto2D">No final do século XVIII e início do século XIX, experimentos com motores a vapor
+        começaram a ser realizados. Pessoas como Nicolas-Joseph Cugnot construíram os primeiros veículos
+        autopropulsionados, mas sua viabilidade prática era limitada devido ao tamanho e peso dos motores a
+        vapor.</p>
 
-    <p class="texto2E">Em meados do século XIX, Karl Benz, um engenheiro alemão, fez uma das contribuições mais significativas para a história dos carros. Em 1885, ele construiu o primeiro automóvel movido a gasolina, conhecido como Benz Patent-Motorwagen. Este veículo, patenteado em 1886, é considerado o primeiro automóvel moderno. <br><br> Paralelamente a Benz, Gottlieb Daimler e Wilhelm Maybach também estavam trabalhando no desenvolvimento de motores a gasolina. Em 1886, eles criaram um motor mais leve e compacto, que foi instalado em uma bicicleta, criando assim uma das primeiras motocicletas.</p>
-    <p class="texto3E">No início do século XX, Henry Ford revolucionou a indústria automobilística com a introdução da linha de montagem. Em 1913, ele implementou a linha de montagem móvel na fábrica da Ford Motor Company, permitindo a produção em massa do Modelo T. Isso reduziu significativamente os custos de produção e tornou os carros mais acessíveis para a classe média.</p>
+        <div class="img1"><img src="css/imagens/index1.png"></div>
 
-    <p class="texto3D">Ao longo do século XX, houve uma série de avanços tecnológicos significativos na indústria automobilística. Isso incluiu melhorias em motores, transmissões, sistemas de freios, segurança veicular e conforto do motorista e dos passageiros. <br><br> A popularidade dos carros cresceu rapidamente em todo o mundo, com diferentes países contribuindo com designs únicos e inovações tecnológicas. Empresas como General Motors, Toyota, Volkswagen e outras se tornaram líderes globais na produção de automóveis. <br><br> No final do século XX e início do século XXI, surgiram preocupações crescentes sobre os impactos ambientais dos carros, especialmente em relação às emissões de gases de efeito estufa e à poluição do ar. Isso levou a um ressurgimento do interesse em veículos elétricos e híbridos, além de um foco renovado em tecnologias de eficiência de combustível.</p>
+    <p class="texto2E">Em meados do século XIX, Karl Benz, um engenheiro alemão, fez uma das contribuições mais
+        significativas para a história dos carros. Em 1885, ele construiu o primeiro automóvel movido a
+        gasolina, conhecido como Benz Patent-Motorwagen. Este veículo, patenteado em 1886, é considerado o
+        primeiro automóvel moderno. <br><br> Paralelamente a Benz, Gottlieb Daimler e Wilhelm Maybach também
+        estavam trabalhando no desenvolvimento de motores a gasolina. Em 1886, eles criaram um motor mais leve e
+        compacto, que foi instalado em uma bicicleta, criando assim uma das primeiras motocicletas.</p>
+        
+        <div class="img2"><img src="css/imagens/index2.png"></div>
 
-    <p class="texto4E">Atualmente, a indústria automobilística está em um ponto de inflexão, com o desenvolvimento acelerado de carros autônomos, veículos conectados à internet e soluções de mobilidade inteligente. Essas inovações prometem não apenas transformar a maneira como nos locomovemos, mas também impactar profundamente a sociedade, economia e meio ambiente.</p>
+    <p class="texto3E">No início do século XX, Henry Ford revolucionou a indústria automobilística com a
+        introdução da linha de montagem. Em 1913, ele implementou a linha de montagem móvel na fábrica da Ford
+        Motor Company, permitindo a produção em massa do Modelo T. Isso reduziu significativamente os custos de
+        produção e tornou os carros mais acessíveis para a classe média.</p>
+
+    <p class="texto3D">Ao longo do século XX, houve uma série de avanços tecnológicos significativos na
+        indústria automobilística. Isso incluiu melhorias em motores, transmissões, sistemas de freios,
+        segurança veicular e conforto do motorista e dos passageiros. <br><br> A popularidade dos carros cresceu
+        rapidamente em todo o mundo, com diferentes países contribuindo com designs únicos e inovações
+        tecnológicas. Empresas como General Motors, Toyota, Volkswagen e outras se tornaram líderes globais na
+        produção de automóveis. <br><br> No final do século XX e início do século XXI, surgiram preocupações
+        crescentes sobre os impactos ambientais dos carros, especialmente em relação às emissões de gases de
+        efeito estufa e à poluição do ar. Isso levou a um ressurgimento do interesse em veículos elétricos e
+        híbridos, além de um foco renovado em tecnologias de eficiência de combustível.</p>
+
+        <div><img src="css/imagens/index3.png" class="img3"></div>
+        <div><img src="css/imagens/index4.png" class="img4"></div>
+
+    <p class="texto4E">Atualmente, a indústria automobilística está em um ponto de inflexão, com o
+        desenvolvimento acelerado de carros autônomos, veículos conectados à internet e soluções de mobilidade
+        inteligente. Essas inovações prometem não apenas transformar a maneira como nos locomovemos, mas também
+        impactar profundamente a sociedade, economia e meio ambiente.</p>
+
+        <div><img src="css/imagens/index5.png" class="img5"></div>
 
     <div id="teste" class="slogan2">Descubra qual seu carro ideal</div>
     <div id="div_button">
-        <button onclick="cadastrar()" class="button">Teste</button>
+        <button onclick="logar()" class="button">Teste</button>
     </div>
 
     <div id="carros" class="carousel-container">
@@ -77,48 +109,85 @@
     </div>
 
 </body>
+
 </html>
 
 <script>
-let slideIndex = 1;
-
-function showSlide(index) {
-    const slides = document.querySelectorAll('.carousel-slide img');
-    const totalSlides = slides.length;
-
-    if (index >= totalSlides) {
-        slideIndex = 0;
-    } else if (index < 0) {
-        slideIndex = totalSlides - 1;
-    } else {
-        slideIndex = index;
+    function inicio() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 
-    slides.forEach((slide, i) => {
-        slide.classList.remove('active', 'prev', 'next');
-        if (i === slideIndex) {
-            slide.classList.add('active');
-            slide.style.transform = 'translateX(0%)';
-        } else if (i === slideIndex - 1 || (slideIndex === 0 && i === totalSlides - 1)) {
-            slide.classList.add('prev');
-            slide.style.transform = 'translateX(-100%)';
-        } else if (i === slideIndex + 1 || (slideIndex === totalSlides - 1 && i === 0)) {
-            slide.classList.add('next');
-            slide.style.transform = 'translateX(100%)';
+    function sobre() {
+        window.scrollTo({
+            top: 607,
+            behavior: 'smooth'
+        });
+    }
+
+    function historia() {
+        window.scrollTo({
+            top: 1200,
+            behavior: 'smooth'
+        });
+    }
+
+    function teste() {
+        window.scrollTo({
+            top: 3600,
+            behavior: 'smooth'
+        });
+    }
+
+    function cadastro() {
+        window.location.replace("cadastro.html");
+    }
+
+    function logar() {
+        window.location.replace("login.html");
+    }
+
+    let slideIndex = 1;
+
+    function showSlide(index) {
+        const slides = document.querySelectorAll('.carousel-slide img');
+        const totalSlides = slides.length;
+
+        if (index >= totalSlides) {
+            slideIndex = 0;
+        } else if (index < 0) {
+            slideIndex = totalSlides - 1;
         } else {
-            slide.style.transform = 'translateX(100%)';
+            slideIndex = index;
         }
-    });
 
-    const slideWidth = slides[0].clientWidth;
-    document.querySelector('.carousel-slide').style.transform = `translateX(${-slideWidth * slideIndex}px)`;
-}
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active', 'prev', 'next');
+            if (i === slideIndex) {
+                slide.classList.add('active');
+                slide.style.transform = 'translateX(0%)';
+            } else if (i === slideIndex - 1 || (slideIndex === 0 && i === totalSlides - 1)) {
+                slide.classList.add('prev');
+                slide.style.transform = 'translateX(-100%)';
+            } else if (i === slideIndex + 1 || (slideIndex === totalSlides - 1 && i === 0)) {
+                slide.classList.add('next');
+                slide.style.transform = 'translateX(100%)';
+            } else {
+                slide.style.transform = 'translateX(100%)';
+            }
+        });
 
-function moveSlide(direction) {
-    showSlide(slideIndex + direction);
-}
+        const slideWidth = slides[0].clientWidth;
+        document.querySelector('.carousel-slide').style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+    }
 
-// Inicializar o carrossel
-showSlide(slideIndex);
+    function moveSlide(direction) {
+        showSlide(slideIndex + direction);
+    }
+
+    // inicia o carrossel
+    showSlide(slideIndex);
 
 </script>

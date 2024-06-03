@@ -10,7 +10,6 @@ body {
     position: absolute;
     left: 590px;
     top: 200px;
-    width: 100px;
 }
 
 .img2 {
@@ -197,6 +196,12 @@ input[type="password"].placeholder2 {
     mix-blend-mode: normal;
     outline: none;
     border: 0px;
+}
+
+.button :hover {
+    width: 168px;
+    height: 39px;
+    background: #103942;
 }
 
 .button2 {

@@ -1,12 +1,9 @@
 body {
     height: 750vh;
-    /* Ocupa 100% da altura da tela */
     width: 100%;
-    /* Não excede a largura da janela do navegador */
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    /* Evita scroll horizontal */
     background: linear-gradient(to bottom, #ADE0EB 0%, #207082 12%, #0E3139 25%, #07191D 66.5%, #113D46 74.5%, #2F7E8F 84.5%, #A3D8E4 94.5%);
 }
 
@@ -43,29 +40,34 @@ body {
     margin: 0;
 }
 
+.cabecalho1:hover,
+.cabecalho2:hover,
+.cabecalho3:hover,
+.cabecalho4:hover,
+.cabecalho5:hover {
+    font-size: 32px;
+    color: #1a5a68;
+    background: none;
+}
+
 .cabecalho1 {
     left: 626px;
-    /* Ajuste relativo ao lado esquerdo */
 }
 
 .cabecalho2 {
     left: 726px;
-    /* Ajuste relativo ao lado esquerdo */
 }
 
 .cabecalho3 {
     left: 826px;
-    /* Ajuste relativo ao lado esquerdo */
 }
 
 .cabecalho4 {
     left: 926px;
-    /* Ajuste relativo ao lado esquerdo */
 }
 
 .cabecalho5 {
     left: 1026px;
-    /* Ajuste relativo ao lado esquerdo */
 }
 
 
@@ -88,25 +90,57 @@ body {
     font-style: normal;
     font-weight: 400;
     font-size: 430px;
-    /* Ajuste para um tamanho de fonte realista */
     line-height: 1;
     display: flex;
     align-items: center;
     text-align: center;
     color: #207183;
     text-shadow: 0px 10px 9px rgba(0, 0, 0, 0.3);
+    z-index: -1;
 }
 
 .img {
     position: absolute;
     width: 80%;
-    /* Largura do contêiner */
     height: auto;
-    /* Ajusta a altura proporcionalmente */
     left: 24%;
     top: 235px;
     background-size: cover;
-    /* Ajusta a imagem para cobrir todo o contêiner */
+}
+
+.img1 {
+    position: absolute;
+    left: 399px;
+    top: 1220px;
+}
+
+.img2 {
+    position: absolute;
+    left: 840px;
+    top: 1600px;
+}
+
+.img3 {
+    position: absolute;
+    left: -20px;
+    top: 2425px;
+    width: 300px;
+}
+
+.img4 {
+    position: absolute;
+    width: 350px;
+    height: 225px;
+    left: 47px;
+    top: 2620px;
+}
+
+.img5 {
+    position: absolute;
+    left: 400px;
+    top: 3085px;
+    width: 655px;
+    height: 425px;
 }
 
 .slogan {
@@ -180,7 +214,7 @@ body {
 
 .texto1E {
     position: absolute;
-    width: 805px;
+    width: 500px;
     height: 136px;
     left: 95px;
     top: 1335px;
@@ -200,7 +234,7 @@ body {
     position: absolute;
     width: 805px;
     height: 136px;
-    left: 350px;
+    left: 95px;
     top: 1535px;
     font-family: 'Inria Sans';
     font-style: normal;
@@ -209,7 +243,7 @@ body {
     line-height: 30px;
     display: flex;
     align-items: center;
-    text-align: right;
+    text-align: left;
     color: #ADE0EB;
     mix-blend-mode: normal;
 }
@@ -270,7 +304,7 @@ body {
 
 .texto4E {
     position: absolute;
-    width: 1000px;
+    width: 1070px;
     height: 136px;
     left: 95px;
     top: 2945px;
@@ -309,7 +343,7 @@ body {
     position: absolute;
     width: 125px;
     height: 36px;
-    left: 560px;
+    left: 600px;
     top: 3700px;
     background: #1a5a68;
     border-radius: 10px;

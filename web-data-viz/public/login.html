@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/login.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +29,8 @@
     <div><button onclick="entrar()" class="button">Entrar</button></div>
     <div><button onclick="cadastrar()" class="button2">Não possui cadastro?</button></div>
     <div><button onclick="voltar()" class="button3">Voltar</button></div>
+    <div><img src="css/imagens/login.png" class="img1"></div>
+    <div><img src="css/imagens/ellipseLogin.png" class="img2"></div>
 
     <script>
         function entrar() {
@@ -67,7 +69,7 @@
                     sessionStorage.ID_USUARIO = json.idUsuario;
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "teste.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
