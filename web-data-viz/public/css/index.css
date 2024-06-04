@@ -103,42 +103,44 @@ body {
     position: absolute;
     width: 80%;
     height: auto;
-    left: 24%;
+    left: 38%;
     top: 235px;
     background-size: cover;
 }
 
 .img1 {
     position: absolute;
-    left: 399px;
-    top: 1220px;
+    left: 550px;
+    top: 1330px;
 }
 
 .img2 {
     position: absolute;
-    left: 840px;
-    top: 1600px;
+    left: 440px;
+    top: 955px;
+    width: 600px;
+    height: 500px;
 }
 
 .img3 {
     position: absolute;
     left: -20px;
-    top: 2425px;
-    width: 300px;
+    top: 2720px;
+    width: 380px;
 }
 
 .img4 {
     position: absolute;
-    width: 350px;
-    height: 225px;
-    left: 47px;
-    top: 2620px;
+    width: 400px;
+    height: 260px;
+    left: 0px;
+    top: 3095px;
 }
 
 .img5 {
     position: absolute;
     left: 400px;
-    top: 3085px;
+    top: 3700px;
     width: 655px;
     height: 425px;
 }
@@ -160,12 +162,24 @@ body {
     mix-blend-mode: soft-light;
 }
 
+.sobre {
+    top: 770px;
+}
+
+.historia {
+    top: 1405px;
+}
+
+.teste {
+    top: 4500px;
+}
+
 .subtitulo1 {
     position: absolute;
     width: 381px;
     height: 67px;
     left: 95px;
-    top: 660px;
+    top: 775px;
     font-family: 'Bebas Neue';
     font-style: normal;
     font-weight: 400;
@@ -182,7 +196,7 @@ body {
     width: 381px;
     height: 67px;
     left: 95px;
-    top: 1231px;
+    top: 1405px;
     font-family: 'Bebas Neue';
     font-style: normal;
     font-weight: 400;
@@ -196,10 +210,10 @@ body {
 
 .texto1D {
     position: absolute;
-    width: 805px;
+    width: 1200px;
     height: 136px;
-    left: 350px;
-    top: 850px;
+    left: 100px;
+    top: 963px;
     font-family: 'Inria Sans';
     font-style: normal;
     font-weight: 400;
@@ -217,7 +231,7 @@ body {
     width: 500px;
     height: 136px;
     left: 95px;
-    top: 1335px;
+    top: 1505px;
     font-family: 'Inria Sans';
     font-style: normal;
     font-weight: 400;
@@ -235,7 +249,7 @@ body {
     width: 805px;
     height: 136px;
     left: 95px;
-    top: 1535px;
+    top: 1710px;
     font-family: 'Inria Sans';
     font-style: normal;
     font-weight: 400;
@@ -253,7 +267,7 @@ body {
     width: 805px;
     height: 136px;
     left: 95px;
-    top: 1880px;
+    top: 2100px;
     font-family: 'Inria Sans';
     font-style: normal;
     font-weight: 400;
@@ -271,7 +285,7 @@ body {
     width: 1137px;
     height: 136px;
     left: 95px;
-    top: 2125px;
+    top: 2345px;
     font-family: 'Inria Sans';
     font-style: normal;
     font-weight: 400;
@@ -286,10 +300,10 @@ body {
 
 .texto3D {
     position: absolute;
-    width: 805px;
+    width: 980px;
     height: 136px;
     left: 350px;
-    top: 2560px;
+    top: 2850px;
     font-family: 'Inria Sans';
     font-style: normal;
     font-weight: 400;
@@ -307,7 +321,7 @@ body {
     width: 1070px;
     height: 136px;
     left: 95px;
-    top: 2945px;
+    top: 3445px;
     font-family: 'Inria Sans';
     font-style: normal;
     font-weight: 400;
@@ -325,7 +339,7 @@ body {
     width: 80%;
     height: auto;
     left: 10%;
-    top: 3650px;
+    top: 4300px;
     font-family: 'Bebas Neue';
     font-style: normal;
     font-weight: 400;
@@ -343,8 +357,8 @@ body {
     position: absolute;
     width: 125px;
     height: 36px;
-    left: 600px;
-    top: 3700px;
+    left: 670px;
+    top: 4400px;
     background: #1a5a68;
     border-radius: 10px;
     font-family: 'Bebas Neue';
@@ -368,8 +382,8 @@ body {
     overflow: hidden;
     border: none;
     border-radius: 10px;
-    left: 310px;
-    top: 3780px;
+    left: 350px;
+    top: 4500px;
 }
 
 .carousel-slide {
