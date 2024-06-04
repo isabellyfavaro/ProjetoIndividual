@@ -9,7 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+    rel="stylesheet">
   <script src="./js/sessao.js"></script>
 </head>
 
@@ -18,8 +20,6 @@
   <div class="pagination">
     <button id="next-btn" class="button">Próxima</button>
   </div>
-
-  <script src="pagination.js"></script>
 </body>
 
 </html>
@@ -29,9 +29,23 @@
     const dataContainer = document.getElementById('data-container');
     const nextBtn = document.getElementById('next-btn');
     let currentPage = 1;
+    let resultado = 0;
 
     const data = [
       `<div class="box">
+            <div class="title">Lançamento</div>
+            <div class="info">O lançamento de um carro refere-se ao ano em que um modelo específico de veículo foi introduzido no mercado. É o momento em que o carro é apresentado ao público e disponibilizado para venda pela primeira vez.</div>
+            <div class="question">Se fosse para você escolher, você gostaria de ter um carro lançado em que década:</div>
+            <div class="options">
+                <select id="select_lancamento" class="select">
+                    <option value="#"></option>
+                    <option value="40">Década de 40</option>
+                    <option value="50">Década de 50</option>
+                    <option value="60">Década de 60</option>
+                </select>
+            </div>
+        </div>`,
+        `<div class="box">
             <div class="title">Lançamento</div>
             <div class="info">O lançamento de um carro refere-se ao ano em que um modelo específico de veículo foi introduzido no mercado. É o momento em que o carro é apresentado ao público e disponibilizado para venda pela primeira vez.</div>
             <div class="question">Se fosse para você escolher, você gostaria de ter um carro lançado em que década:</div>
@@ -177,98 +191,154 @@
           <option value="4">Automático</option>
         </select>
       </div>
-    </div>
-    
-    <div class="pagination">
-    <button onclick="finalizar()" id="next-btn" class="button">Finalizar</button>
-  </div>`
+    </div>`,
+      `<div class="pagination">
+          <button onclick="finalizar()" id="next-btn" class="button">Finalizar</button>
+        </div>`
     ];
 
+    function calcular() {
+      const lancamento = document.getElementById('select_lancamento').value;
+      const torque = document.getElementById('select_torque').value;
+      const motor = document.getElementById('select_motor').value;
+      const suspensao = document.getElementById('select_suspensao').value;
+      const direcao = document.getElementById('select_direcao').value;
+      const aceleracao = document.getElementById('select_aceleracao').value;
+      const carroceria = document.getElementById('select_carroceria').value;
+      const velocidade = document.getElementById('select_velocidade').value;
+      const freios = document.getElementById('select_freios').value;
+      const rotacao = document.getElementById('select_rotacao').value;
+      const cambio = document.getElementById('select_cambio').value;
+
+      let resultado = 0;
+
+      if (lancamento == "1") {
+        resultado += 10;
+      } else if (lancamento == "2") {
+        resultado += 50;
+      } else {
+        resultado += 90;
+      }
+
+      if (torque == "1") {
+        resultado += 10;
+      } else if (torque == "2") {
+        resultado += 45;
+      } else if (torque == "3") {
+        resultado += 75;
+      } else {
+        resultado += 100;
+      }
+
+      if (motor == "1") {
+        resultado += 10;
+      } else if (motor == "2") {
+        resultado += 50;
+      } else {
+        resultado += 90;
+      }
+
+      if (suspensao == "1") {
+        resultado += 10;
+      } else if (suspensao == "2") {
+        resultado += 50;
+      } else {
+        resultado += 90;
+      }
+
+      if (direcao == "1") {
+        resultado += 10;
+      } else {
+        resultado += 90;
+      }
+
+      if (aceleracao == "1") {
+        resultado += 10;
+      } else if (aceleracao == "2") {
+        resultado += 30;
+      } else if (aceleracao == "3") {
+        resultado += 50;
+      } else if (aceleracao == "4") {
+        resultado += 70;
+      } else if (aceleracao == "5") {
+        resultado += 90;
+      } else {
+        resultado += 110;
+      }
+
+      if (carroceria == "1") {
+        resultado += 10;
+      } else if (carroceria == "2") {
+        resultado += 45;
+      } else if (carroceria == "3") {
+        resultado += 75;
+      } else {
+        resultado += 100;
+      }
+
+      if (velocidade == "1") {
+        resultado += 10;
+      } else if (velocidade == "2") {
+        resultado += 50;
+      } else {
+        resultado += 90;
+      }
+
+      if (freios == "1") {
+        resultado += 10;
+      } else if (freios == "2") {
+        resultado += 50;
+      } else {
+        resultado += 90;
+      }
+
+      if (rotacao == "1") {
+        resultado += 10;
+      } else if (rotacao == "2") {
+        resultado += 50;
+      } else {
+        resultado += 90;
+      }
+
+      if (cambio == "1") {
+        resultado += 10;
+      } else if (cambio == "2") {
+        resultado += 45;
+      } else if (cambio == "3") {
+        resultado += 75;
+      } else {
+        resultado += 100;
+      }
+    }
+
     function renderPage() {
-      dataContainer.innerHTML = data[currentPage - 1];
-      if (currentPage === data.length) {
+      dataContainer.innerHTML = data[currentPage];
+      if (currentPage === data.length - 1) {
         nextBtn.textContent = 'Finalizar';
+        nextBtn.removeEventListener('click', handleNextClick);
         nextBtn.addEventListener('click', finalizar);
       } else {
         nextBtn.textContent = 'Próxima';
+        nextBtn.removeEventListener('click', finalizar);
+        nextBtn.addEventListener('click', handleNextClick);
       }
     }
 
-    nextBtn.addEventListener('click', () => {
-      if (currentPage < data.length) {
+    function handleNextClick() {
+      if (currentPage < data.length - 1) {
         currentPage++;
         renderPage();
       }
-    });
+    }
 
+    function finalizar() {
+      // Redireciona para a página da dashboard
+      window.location = "dashboard.html";
+    }
+
+    nextBtn.addEventListener('click', handleNextClick);
     renderPage();
   });
 
-  const listaResultados = ['Ferrari', 'Aston', 'Bel Air', 'BMW', 'Corvette', 'E-TYPE', 'Jaguar', 'Lamborghini', 'Mustang 69', 'Mustang First Generation'];
-  const listaValores = ['415', '530', '670', '575', '570', '510', '550', '470', '720', '755'];
-  let resultado = 0;
-
-  function finalizar() {
-    calcular ()
-
-    const ranges = [
-      { min: 415, max: 470, url: "/carros/ferrari.html" },
-      { min: 470, max: 510, url: "/carros/lamborghini.html" },
-      { min: 510, max: 530, url: "/carros/etype.html" },
-      { min: 530, max: 550, url: "/carros/aston.html" },
-      { min: 550, max: 570, url: "/carros/jaguar.html" },
-      { min: 570, max: 575, url: "/carros/corvette.html" },
-      { min: 575, max: 670, url: "/carros/bwm.html" },
-      { min: 670, max: 720, url: "/carros/belair.html" },
-      { min: 720, max: 755, url: "/carros/mustang69.html" },
-      { min: 755, max: Infinity, url: "/carros/mustangFG.html" }
-    ];
-
-    for (const range of ranges) {
-      if (resultado >= range.min && resultado < range.max) {
-        window.location = range.url;
-        break;
-      }
-    }
-  }
-
-  function calcular() {
-    const valores = [
-      parseInt(select_lancamento.value),
-      parseInt(select_torque.value),
-      parseInt(select_motor.value),
-      parseInt(select_suspensao.value),
-      parseInt(select_direcao.value),
-      parseInt(select_aceleracao.value),
-      parseInt(select_carroceria.value),
-      parseInt(select_velocidade.value),
-      parseInt(select_freios.value),
-      parseInt(select_rotacao.value),
-      parseInt(select_cambio.value)
-    ];
-
-    const pontos = [
-      [10, 50, 90],
-      [10, 45, 75, 100],
-      [10, 50, 90],
-      [10, 50, 90],
-      [10, 90],
-      [10, 30, 50, 70, 90, 110],
-      [10, 45, 75, 100],
-      [10, 50, 90],
-      [10, 50, 90],
-      [10, 50, 90],
-      [10, 45, 75, 100]
-    ];
-
-    for (let i = 0; i < valores.length; i++) {
-      const val = valores[i] - 1;
-      if (val >= 0 && val < pontos[i].length) {
-        resultado += pontos[i][val];
-      } else {
-        resultado += pontos[i][pontos[i].length - 1];
-      }
-    }
-
-  }
 </script>
+</html>

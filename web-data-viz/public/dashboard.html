@@ -15,7 +15,24 @@
 </head>
 
 <body>
-    <div class="icone"><img src="css/imagens/icone.png"></div>
+    <div class="botao"><button onclick="menu()" class="icone"><img src="css/imagens/icone.png" alt="Menu Icon"></button></div>
+    
+    <div id="menu" class="menu hidden">
+        <ul>
+            <li><a href="carros/etype.html">Jaguar E-Type</a></li>
+            <li><a href="carros/corvette.html">Chevrolet Corvette Stingray (C2)</a></li>
+            <li><a href="carros/ferrari.html">Ferrari 250 GTO</a></li>
+            <li><a href="carros/belair.html">Chevrolet Bel Air (Tri-Five)</a></li>
+            <li><a href="carros/lamborghini.html">Lamborghini Miura</a></li>
+            <li><a href="carros/bmw.html">BMW 507</a></li>
+            <li><a href="carros/jaguar.html">Jaguar XK120</a></li>
+            <li><a href="carros/mustang69.html">Ford Mustang 69</a></li>
+            <li><a href="carros/aston.html">Aston Martin DB5</a></li>
+            <li><a href="carros/mustangFG.html">Ford Mustang (First Generation)</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+        </ul>
+    </div>
+
     <div class="container">
         <div class="chart">
             <canvas id="doughnut" width="400" height="400"></canvas>
@@ -56,3 +73,10 @@
 </body>
 
 </html>
+
+<script>
+    function menu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('hidden');
+}
+</script>
