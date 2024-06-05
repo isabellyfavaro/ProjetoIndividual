@@ -77,7 +77,35 @@ function cadastrar(req, res) {
     }
 }
 
+function salvarPontuacao(req, res) {
+    var usuario = req.body.usuarioIdServer;
+    var quiz = req.body.idQuizServer;
+    var pontuacao = req.body.pontuacaoServer
+
+    if (usuario == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else if (quiz == undefined) {
+        res.status(400).send("Sua senha está indefinida!");
+    } else {
+
+        usuarioModel.salvarPontuacao(usuario, quiz, pontuacao)
+            .then(
+                function(resultado) {
+                    res.json(resultado)
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    salvarPontuacao
 }

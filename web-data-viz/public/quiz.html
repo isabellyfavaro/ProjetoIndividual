@@ -12,333 +12,226 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
     rel="stylesheet">
-  <script src="./js/sessao.js"></script>
 </head>
 
 <body>
-  <div id="data-container"></div>
-  <div class="pagination">
-    <button id="next-btn" class="button">Próxima</button>
-  </div>
+  <main>
+    <div class="box">
+      <span id="title" class="title"></span>
+      <span id="question" class="info"></span>
+      <div id="options"></div>
+    </div>
+
+      <button onclick="finalizar()">Finalizar</button>
+      <div id="result" style="display: none;">
+        <div id="result-content"></div>
+      </div>
+  </main>
+  <script src="quiz.js" type="module"></script>
 </body>
 
-</html>
-
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const dataContainer = document.getElementById('data-container');
-    const nextBtn = document.getElementById('next-btn');
-    let currentPage = 1;
-    let resultado = 0;
+  const questions = [
 
-    const data = [
-      `<div class="box">
-            <div class="title">Lançamento</div>
-            <div class="info">O lançamento de um carro refere-se ao ano em que um modelo específico de veículo foi introduzido no mercado. É o momento em que o carro é apresentado ao público e disponibilizado para venda pela primeira vez.</div>
-            <div class="question">Se fosse para você escolher, você gostaria de ter um carro lançado em que década:</div>
-            <div class="options">
-                <select id="select_lancamento" class="select">
-                    <option value="#"></option>
-                    <option value="40">Década de 40</option>
-                    <option value="50">Década de 50</option>
-                    <option value="60">Década de 60</option>
-                </select>
-            </div>
-        </div>`,
-        `<div class="box">
-            <div class="title">Lançamento</div>
-            <div class="info">O lançamento de um carro refere-se ao ano em que um modelo específico de veículo foi introduzido no mercado. É o momento em que o carro é apresentado ao público e disponibilizado para venda pela primeira vez.</div>
-            <div class="question">Se fosse para você escolher, você gostaria de ter um carro lançado em que década:</div>
-            <div class="options">
-                <select id="select_lancamento" class="select">
-                    <option value="#"></option>
-                    <option value="40">Década de 40</option>
-                    <option value="50">Década de 50</option>
-                    <option value="60">Década de 60</option>
-                </select>
-            </div>
-        </div>`,
-      `<div class="box">
-            <div class="title">Torque</div>
-            <div class="info">O torque em um carro é a força de rotação que o motor produz, medida em Newton-metros (Nm) ou libras-pé (lb-ft). É essa força que impulsiona o carro para frente e aceleração ele. Se para apertar um parafuso você precisa girar uma chave com mais força, no carro você precisa de mais torque para fazer as rodas se moverem.</div>
-            <div class="question">Se fosse para você escolher, você gostaria de ter um carro com um torque de:</div>
-            <div class="options">
-                <select id="select_torque" class="select">
-                    <option value="#"></option>
-                    <option value="1">200 à 300</option>
-                    <option value="2">300 à 400</option>
-                    <option value="3">400 à 500</option>
-                    <option value="4">Variável</option>
-                </select>
-            </div>
-        </div>`,
-      ` <div class="box">
-      <div class="title">Motor</div>
-      <div class="info">A capacidade do motor (cilindrada), é o volume total dos cilindros do motor onde ocorre a combustão, medida em litros (L). Ela indica o tamanho do motor e sua potencial capacidade de produzir potência e torque. Quanto maior ela for, maior serão esses dois. No entanto, motores maiores também tendem a ser menos eficientes em termos de consumo de combustível e podem ser mais pesados.</div>
-        <div class="question">Se fosse para você escolher, você gostaria de ter uma capacidade de:</div>
-        <div class="options">
-          <select id="select_motor" class="select">
-            <option value="#"></option>
-            <option value="1">de 2 a 3L</option>
-            <option value="2">de 3 a 4L</option>
-            <option value="3">mais de 4L</option>
-          </select>
-        </div>
-    </div>`,
-      `<div class="box">
-      <div class="title">Suspensão</div>
-      <div class="info">A suspensão é o sistema que conecta as rodas à carroceria do veículo, absorvendo impactos e garantindo estabilidade. Suspensão independente permite movimento individual das rodas, eixo rígido conecta diretamente as rodas mantendo-as paralelas, e eixo rígido com molas semi-elípticas usa molas de lâminas para suporte e amortecimento.</div>
-      <div class="question">Se fosse para escolher, qual suspensão você preferiria:</div>
-      <div class="options">
-        <select id="select_suspensao" class="select">
-          <option value="#"></option>
-          <option value="1">Independente nas quatro rodas</option>
-          <option value="2">Independente na frente, eixo rígido atrás</option>
-          <option value="3">Independente na frente, eixo rígido com molas semi-elípticas atrás</option>
-        </select>
-      </div>
-    </div>`,
-      `<div class="box">
-      <div class="title">Direção</div>
-      <div class="info">A direção é o sistema que permite ao motorista controlar a trajetória do veículo. Na direção pinhão e cremalheira, quando você vira o volante, um tipo de engrenagem move uma barra que faz as rodas virarem para onde você quer. Na direção setor e sem-fim, o volante está conectado a uma barra que faz as rodas se moverem, usando um formato de "roda dentada" para guiar esse movimento.</div>
-      <div class="question">Escolha um tipo de direção:</div>
-      <div class="options">
-        <select id="select_direcao" class="select">
-          <option value="#"></option>
-          <option value="1">Pinhão e cremalheira</option>
-          <option value="2">Setor e sem-fim</option>
-        </select>
-      </div>
-    </div>`,
-      `<div class="box">
-      <div class="title">Aceleração</div>
-      <div class="info">A aceleração é a rapidez com que um veículo aumenta sua velocidade. Ter uma aceleração muito alta pode proporcionar uma sensação de desempenho esportivo e facilitar ultrapassagens, mas também pode aumentar o consumo de combustível e exigir mais cuidado ao dirigir, especialmente em condições de aderência limitada.</div>
-      <div class="question">Se fosse para você escolher, você gostaria de ter uma aceleração de:</div>
-      <div class="options">
-        <select id="select_aceleracao" class="select">
-          <option value="#"></option>
-          <option value="1">5 à 6 segundos</option>
-          <option value="2">6 à 7 segundos</option>
-          <option value="3">7 à 8 segundos</option>
-          <option value="4">8 à 9 segundos</option>
-          <option value="5">9 à 10 segundos</option>
-        </select>
-      </div>
-    </div>`,
-      `<div class="box">
-      <div class="title">Carroceria</div>
-      <div class="info">A carroceria de um carro é a estrutura externa que dá forma a ele. Um cupê é um carro fechado com dois ou quatro assentos e uma linha de teto comum. Um cupê conversível tem um teto retrátil que pode ser abaixado, enquanto um cupê conversível fastback tem um desenho de teto mais esportivo. Um roadster é um tipo de cupê conversível com dois assentos e uma capota removível.</div>
-      <div class="question">Qual formato te agrada mais:</div>
-      <div class="options">
-        <select id="select_carroceria" class="select">
-          <option value="#"></option>
-          <option value="1">Cupê</option>
-          <option value="2">Cupê conversível</option>
-          <option value="3">Cupê conversível fastback</option>
-          <option value="4">Roadster</option>
-        </select>
-      </div>
-    </div>`,
-      `<div class="box">
-      <div class="title">Velocidade Máx.</div>
-      <div class="info">A velocidade máxima de um veículo é a medida máxima de sua capacidade de deslocamento, com base na potência, torque e aerodinâmica do carro. Alcançar essa velocidade requer um equilíbrio entre potência, controle e segurança, e muitos veículos são projetados com limitadores para garantir que ninguém ultrapasse os limites seguros.</div>
-      <div class="question">Você gostaria de ter um carro com velocidade máxima de:</div>
-      <div class="options">
-        <select id="select_velocidade" class="select">
-          <option value="#"></option>
-          <option value="1">170km/h à 200km/h</option>
-          <option value="2">200km/h à 250km/h</option>
-          <option value="3">250km/h à 300km/h</option>
-        </select>
-      </div>
-    </div>`,
-      `<div class="box">
-      <div class="title">Freios</div>
-      <div class="info">Os freios são sistemas que reduzem a velocidade ou param o veículo. Freios a disco nas quatro rodas oferecem melhor desempenho de frenagem e dissipação de calor. Já os freios só na frente com tambores atrás geralmente oferecem boa eficiência, enquanto tambores nas quatro rodas podem ser menos eficazes em frenagens intensas, mas são mais simples e econômicos.</div>
-      <div class="question">Qual a sua preferência de freio:</div>
-      <div class="options">
-        <select id="select_freios" class="select">
-          <option value="#"></option>
-          <option value="1">Discos nas quatro rodas</option>
-          <option value="2">Discos na frente e tambores atrás</option>
-          <option value="3">Tambores nas quatro rodas</option>
-        </select>
-      </div>
-    </div>`,
-      `<div class="box">
-      <div class="title">Rotação</div>
-      <div class="info">Rotação é a velocidade de rotação do motor, medida em rotações por minuto (RPM). Alta rotação significa que o motor gira rapidamente, proporcionando maior potência em velocidades altas, enquanto baixa rotação é mais eficiente em velocidades baixas, mas sacrifica o desempenho. Rotação variável refere-se à capacidade do motor de se ajustar sua de acordo com a demanda.</div>
-      <div class="question">Escolha a rotação que te agrada mais:</div>
-      <div class="options">
-        <select id="select_rotacao" class="select">
-          <option value="#"></option>
-          <option value="1">Alta</option>
-          <option value="2">Baixa</option>
-          <option value="3">Variável</option>
-        </select>
-      </div>
-    </div>`,
-      `<div class="box">
-      <div class="title">Câmbio</div>
-      <div class="info">O câmbio é um sistema que permite mudar as marchas do veículo para controlar a velocidade e o torque do motor. Um câmbio manual de 4 velocidades oferece quatro opções de marcha, enquanto um câmbio manual de 3 velocidades ou automático Powerglide possui três. Um câmbio manual de 5 velocidades oferece uma marcha adicional, e um câmbio automático seleciona automaticamente as marchas.</div>
-      <div class="question">Escolha um câmbio:</div>
-      <div class="options">
-        <select id="select_cambio" class="select">
-          <option value="#"></option>
-          <option value="1">Manual de 3 velocidades</option>
-          <option value="2">Manual de 4 velocidades</option>
-          <option value="3">Manual de 5 velocidades</option>
-          <option value="4">Automático</option>
-        </select>
-      </div>
-    </div>`,
-      `<div class="pagination">
-          <button onclick="finalizar()" id="next-btn" class="button">Finalizar</button>
-        </div>`
-    ];
+    {
+      title: "Lançamento",
+      question: "O lançamento de um carro refere-se ao ano em que um modelo específico de veículo foi introduzido no mercado. É o momento em que o carro é apresentado ao público e disponibilizado para venda pela primeira vez. Se fosse para você escolher, você gostaria de ter um carro lançado em que década:",
+      options: ["Década de 40",
+        "Década de 50",
+        "Década de 60",
+        "Década de 70"],
+      points: [1, 2, 3, 4]
+    },
 
-    function calcular() {
-      const lancamento = document.getElementById('select_lancamento').value;
-      const torque = document.getElementById('select_torque').value;
-      const motor = document.getElementById('select_motor').value;
-      const suspensao = document.getElementById('select_suspensao').value;
-      const direcao = document.getElementById('select_direcao').value;
-      const aceleracao = document.getElementById('select_aceleracao').value;
-      const carroceria = document.getElementById('select_carroceria').value;
-      const velocidade = document.getElementById('select_velocidade').value;
-      const freios = document.getElementById('select_freios').value;
-      const rotacao = document.getElementById('select_rotacao').value;
-      const cambio = document.getElementById('select_cambio').value;
 
-      let resultado = 0;
 
-      if (lancamento == "1") {
-        resultado += 10;
-      } else if (lancamento == "2") {
-        resultado += 50;
-      } else {
-        resultado += 90;
-      }
+    {
+      title: "Torque",
+      question: "O torque em um carro é a força de rotação que o motor produz, medida em Newton-metros (Nm) ou libras-pé (lb-ft). É essa força que impulsiona o carro para frente e aceleração ele. Se para apertar um parafuso você precisa girar uma chave com mais força, no carro você precisa de mais torque para fazer as rodas se moverem. Se fosse para você escolher, você gostaria de ter um carro com um torque de:",
+      options: ["200 à 300",
+        "300 à 400",
+        "400 à 500",
+        "Variável"],
+      points: [1, 2, 3, 4]
+    },
 
-      if (torque == "1") {
-        resultado += 10;
-      } else if (torque == "2") {
-        resultado += 45;
-      } else if (torque == "3") {
-        resultado += 75;
-      } else {
-        resultado += 100;
-      }
+    {
+      title: "Motor",
+      question: "A capacidade do motor (cilindrada), é o volume total dos cilindros do motor onde ocorre a combustão, medida em litros (L). Ela indica o tamanho do motor e sua potencial capacidade de produzir potência e torque. Quanto maior ela for, maior serão esses dois. No entanto, motores maiores também tendem a ser menos eficientes em termos de consumo de combustível e podem ser mais pesados. Se fosse para você escolher, você gostaria de ter uma capacidade de:",
+      options: ["de 2 a 3L",
+        "de 3 a 4L",
+        "de 4 a 5L",
+        "mais de 5L"],
+      points: [1, 2, 3, 4]
+    },
 
-      if (motor == "1") {
-        resultado += 10;
-      } else if (motor == "2") {
-        resultado += 50;
-      } else {
-        resultado += 90;
-      }
+    {
+      title: "Suspensão",
+      question: "A suspensão é o sistema que conecta as rodas à carroceria do veículo, absorvendo impactos e garantindo estabilidade. Suspensão independente permite movimento individual das rodas, eixo rígido conecta diretamente as rodas mantendo-as paralelas, e eixo rígido com molas semi-elípticas usa molas de lâminas para suporte e amortecimento. Se fosse para escolher, qual suspensão você preferiria:",
+      options: ["Independente nas quatro rodas",
+        "Independente na frente, eixo rígido atrás",
+        "Independente na frente, eixo rígido com molas semi-elípticas atrás",
+        "Independente na frente, eixo rígido com molas semi-elípticas opcionais atrás"],
+      points: [1, 2, 3, 4]
+    },
 
-      if (suspensao == "1") {
-        resultado += 10;
-      } else if (suspensao == "2") {
-        resultado += 50;
-      } else {
-        resultado += 90;
-      }
+    {
+      title: "Direção",
+      question: "A direção é o sistema que permite ao motorista controlar a trajetória do veículo. Na direção pinhão e cremalheira, quando você vira o volante, um tipo de engrenagem move uma barra que faz as rodas virarem para onde você quer. Na direção setor e sem-fim, o volante está conectado a uma barra que faz as rodas se moverem, usando um formato de roda dentada para guiar esse movimento. Escolha um tipo de direção:",
+      options: ["Pinhão e cremalheira",
+        "Setor e sem-fim",
+        "",
+        ""],
+      points: [1, 2, 3, 4]
+    },
 
-      if (direcao == "1") {
-        resultado += 10;
-      } else {
-        resultado += 90;
-      }
+    {
+      title: "Aceleração",
+      question: "A aceleração é a rapidez com que um veículo aumenta sua velocidade. Ter uma aceleração muito alta pode proporcionar uma sensação de desempenho esportivo e facilitar ultrapassagens, mas também pode aumentar o consumo de combustível e exigir mais cuidado ao dirigir, especialmente em condições de aderência limitada. Se fosse para você escolher, você gostaria de ter uma aceleração de:",
+      options: ["5 à 6 segundos",
+        "6 à 7 segundos",
+        "7 à 8 segundos",
+        "8 à 9 segundos"],
+      points: [1, 2, 3, 4]
+    },
 
-      if (aceleracao == "1") {
-        resultado += 10;
-      } else if (aceleracao == "2") {
-        resultado += 30;
-      } else if (aceleracao == "3") {
-        resultado += 50;
-      } else if (aceleracao == "4") {
-        resultado += 70;
-      } else if (aceleracao == "5") {
-        resultado += 90;
-      } else {
-        resultado += 110;
-      }
+    {
+      title: "Carroceria",
+      question: "A carroceria de um carro é a estrutura externa que dá forma a ele. Um cupê é um carro fechado com dois ou quatro assentos e uma linha de teto comum. Um cupê conversível tem um teto retrátil que pode ser abaixado, enquanto um cupê conversível fastback tem um desenho de teto mais esportivo. Um roadster é um tipo de cupê conversível com dois assentos e uma capota removível. Qual formato te agrada mais:",
+      options: ["Cupê",
+        "Cupê conversível",
+        "Cupê conversível fastback",
+        "Roadster"],
+      points: [1, 2, 3, 4]
+    },
 
-      if (carroceria == "1") {
-        resultado += 10;
-      } else if (carroceria == "2") {
-        resultado += 45;
-      } else if (carroceria == "3") {
-        resultado += 75;
-      } else {
-        resultado += 100;
-      }
+    {
+      title: "Velocidade Máx.",
+      question: "A velocidade máxima de um veículo é a medida máxima de sua capacidade de deslocamento, com base na potência, torque e aerodinâmica do carro. Alcançar essa velocidade requer um equilíbrio entre potência, controle e segurança, e muitos veículos são projetados com limitadores para garantir que ninguém ultrapasse os limites seguros. Você gostaria de ter um carro com velocidade máxima de:",
+      options: ["Menos de 170km/h",
+        "170km/h à 200km/h",
+        "200km/h à 250km/h",
+        "250km/h à 300km/h"],
+      points: [1, 2, 3, 4]
+    },
 
-      if (velocidade == "1") {
-        resultado += 10;
-      } else if (velocidade == "2") {
-        resultado += 50;
-      } else {
-        resultado += 90;
-      }
+    {
+      title: "Freios",
+      question: "Os freios são sistemas que reduzem a velocidade ou param o veículo. Freios a disco nas quatro rodas oferecem melhor desempenho de frenagem e dissipação de calor. Já os freios só na frente com tambores atrás geralmente oferecem boa eficiência, enquanto tambores nas quatro rodas podem ser menos eficazes em frenagens intensas, mas são mais simples e econômicos. Qual a sua preferência de freio:",
+      options: ["Discos nas quatro rodas",
+        "Tambores nas quatro rodas",
+        "Discos na frente e tambores atrás",
+        "Tambores na frente e tambores atrás"],
+      points: [1, 2, 3, 4]
+    },
 
-      if (freios == "1") {
-        resultado += 10;
-      } else if (freios == "2") {
-        resultado += 50;
-      } else {
-        resultado += 90;
-      }
+    {
+      title: "Rotação",
+      question: "Rotação é a velocidade de rotação do motor, medida em rotações por minuto (RPM). Alta rotação significa que o motor gira rapidamente, proporcionando maior potência em velocidades altas, enquanto baixa rotação é mais eficiente em velocidades baixas, mas sacrifica o desempenho. Rotação variável refere-se à capacidade do motor de se ajustar sua de acordo com a demanda. Escolha a rotação que te agrada mais:",
+      options: ["Variável",
+        "Alta",
+        "Média",
+        "Baixa"],
+      points: [1, 2, 3, 4]
+    },
 
-      if (rotacao == "1") {
-        resultado += 10;
-      } else if (rotacao == "2") {
-        resultado += 50;
-      } else {
-        resultado += 90;
-      }
 
-      if (cambio == "1") {
-        resultado += 10;
-      } else if (cambio == "2") {
-        resultado += 45;
-      } else if (cambio == "3") {
-        resultado += 75;
-      } else {
-        resultado += 100;
-      }
-    }
+    {
+      title: "Câmbio",
+      question: "O câmbio é um sistema que permite mudar as marchas do veículo para controlar a velocidade e o torque do motor. Um câmbio manual de 4 velocidades oferece quatro opções de marcha, enquanto um câmbio manual de 3 velocidades ou automático Powerglide possui três. Um câmbio manual de 5 velocidades oferece uma marcha adicional, e um câmbio automático seleciona automaticamente as marchas. Escolha um câmbio:",
+      options: ["Manual de 3 velocidades",
+        "Manual de 4 velocidades",
+        "Manual de 5 velocidades",
+        "Automático"],
+      points: [1, 2, 3, 4]
+    },
+  ];
 
-    function renderPage() {
-      dataContainer.innerHTML = data[currentPage];
-      if (currentPage === data.length - 1) {
-        nextBtn.textContent = 'Finalizar';
-        nextBtn.removeEventListener('click', handleNextClick);
-        nextBtn.addEventListener('click', finalizar);
-      } else {
-        nextBtn.textContent = 'Próxima';
-        nextBtn.removeEventListener('click', finalizar);
-        nextBtn.addEventListener('click', handleNextClick);
-      }
-    }
+  const Carros = ["Ferrari 250 GTO", "Ford Mustang 69", "Jaguar", "Chevrolet E-TYPE"];
 
-    function handleNextClick() {
-      if (currentPage < data.length - 1) {
-        currentPage++;
-        renderPage();
-      }
-    }
+  let currentQuestion = 0;
+  let answers = { "Ferrari 250 GTO": 0, "Ford Mustang 69": 0, "Jaguar": 0, "Chevrolet E-TYPE": 0 };
 
-    function finalizar() {
-      // Redireciona para a página da dashboard
-      window.location = "dashboard.html";
-    }
-
-    nextBtn.addEventListener('click', handleNextClick);
-    renderPage();
+  document.addEventListener("DOMContentLoaded", function () {
+    showQuestion();
   });
 
+  function selectOption(option, points) {
+    const question = questions[currentQuestion];
+    const Carro = Carros[currentQuestion];
+    answers[Carro] += points;
+    currentQuestion++;
+    if (currentQuestion < questions.length) {
+      showQuestion();
+    } else {
+      salvarPontuacao();
+    }
+  }
+
+  function showQuestion() {
+    const question = questions[currentQuestion];
+    document.getElementById("question").textContent = question.question;
+    const optionsElement = document.getElementById("options");
+    optionsElement.innerHTML = '';
+    question.options.forEach((option, index) => {
+      const button = document.createElement("button");
+      button.textContent = option;
+      button.addEventListener("click", () => selectOption(option, question.points[index]));
+      optionsElement.appendChild(button);
+    });
+  }
+
+  function salvarPontuacao() {
+    const resultElement = document.getElementById("result");
+    const resultContentElement = document.getElementById("result-content");
+    resultContentElement.innerHTML = "";
+    const sortedCars = Object.keys(answers).sort((a, b) => answers[b] - answers[a]);
+    sortedCars.forEach(car => {
+      const p = document.createElement("p");
+      p.textContent = `${car}: ${answers[car]} pontos`;
+      resultContentElement.appendChild(p);
+    });
+    resultElement.style.display = "block";
+
+    
+    var usuarioIdVar = sessionStorage.ID_USUARIO;
+    fetch("/usuarios/salvarPontuacao", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        usuarioIdServer: usuarioIdVar,
+        idQuizServer: 1,
+        pontuacaoServer: car, // variavel que mostra a pontuação final do usuario
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      }); 
+
+  }
+
+  function finalizar() {
+    salvarPontuacao()
+    // window.location = "dashboard.html"
+    
+  }
+
+  
+
 </script>
+
 </html>
+
