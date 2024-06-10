@@ -80,6 +80,7 @@ function cadastrar(req, res) {
 function salvarPontuacao(req, res) {
     var usuario = req.body.usuarioIdServer;
     var quiz = req.body.idQuizServer;
+    var car = req.body.idCarServer;
     var pontuacao = req.body.pontuacaoServer
 
     if (usuario == undefined) {
@@ -88,9 +89,9 @@ function salvarPontuacao(req, res) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
 
-        usuarioModel.salvarPontuacao(usuario, quiz, pontuacao)
+        usuarioModel.salvarPontuacao(usuario, quiz, car, pontuacao)
             .then(
-                function(resultado) {
+                function (resultado) {
                     res.json(resultado)
                 }
             ).catch(
@@ -104,8 +105,73 @@ function salvarPontuacao(req, res) {
 
 }
 
+function carrosQueSaemMais(req, res) {
+    usuarioModel.carrosQueSaemMais()
+        .then(
+            function (resultado) {
+                res.json(resultado)
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+
+function resultadoCarro(req, res) {
+    var usuarioId = req.query.usuarioId;
+
+    if (usuarioId == undefined) {
+        res.status(400).send("O id do usuário está indefinido")
+        return;
+    } else {
+        usuarioModel.resultadoCarro(usuarioId)
+            .then(
+                function (resultado) {
+                    res.json(resultado)
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+
+    }
+}
+
+function qtdPessoas(req, res) {
+    var carrosResultado = req.params.carroResultado;
+
+    if (carrosResultado == undefined) {
+        res.status(400).send("O id do usuário está indefinido")
+        return;
+    } else {
+        usuarioModel.qtdPessoas(carrosResultado)
+            .then(
+                function (resultado) {
+                    res.json(resultado)
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+
+    }
+}
+
 module.exports = {
     autenticar,
     cadastrar,
-    salvarPontuacao
+    salvarPontuacao,
+    carrosQueSaemMais,
+    resultadoCarro,
+    qtdPessoas
 }

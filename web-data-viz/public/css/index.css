@@ -1,9 +1,8 @@
 body {
-    height: 750vh;
+    height: 665vh;
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
     background: linear-gradient(to bottom, #ADE0EB 0%, #207082 12%, #0E3139 25%, #07191D 66.5%, #113D46 74.5%, #2F7E8F 84.5%, #A3D8E4 94.5%);
 }
 

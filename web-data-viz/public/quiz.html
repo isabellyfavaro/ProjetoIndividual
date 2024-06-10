@@ -22,7 +22,7 @@
       <div id="options"></div>
     </div>
 
-      <button onclick="finalizar()">Finalizar</button>
+      <button onclick="finalizar()" class="finalizar">Finalizar</button>
       <div id="result" style="display: none;">
         <div id="result-content"></div>
       </div>
@@ -31,6 +31,7 @@
 </body>
 
 <script>
+
   const questions = [
 
     {
@@ -42,8 +43,6 @@
         "Década de 70"],
       points: [1, 2, 3, 4]
     },
-
-
 
     {
       title: "Torque",
@@ -147,10 +146,19 @@
     },
   ];
 
+
+  
   const Carros = ["Ferrari 250 GTO", "Ford Mustang 69", "Jaguar", "Chevrolet E-TYPE"];
 
+  let posicaoCarro = 0;
+
+  
+
   let currentQuestion = 0;
-  let answers = { "Ferrari 250 GTO": 0, "Ford Mustang 69": 0, "Jaguar": 0, "Chevrolet E-TYPE": 0 };
+  let answers = { Ferrari250GTO: 0, FordMustang69: 0, Jaguar: 0, ChevroletETYPE: 0 };
+  let car = 0; // Inicialize a variável car
+
+  
 
   document.addEventListener("DOMContentLoaded", function () {
     showQuestion();
@@ -160,6 +168,8 @@
     const question = questions[currentQuestion];
     const Carro = Carros[currentQuestion];
     answers[Carro] += points;
+    car += points; // Adicione os pontos à variável car
+    console.log(points)
     currentQuestion++;
     if (currentQuestion < questions.length) {
       showQuestion();
@@ -185,43 +195,49 @@
     const resultElement = document.getElementById("result");
     const resultContentElement = document.getElementById("result-content");
     resultContentElement.innerHTML = "";
+
     const sortedCars = Object.keys(answers).sort((a, b) => answers[b] - answers[a]);
+    const carroUsuario = sortedCars[posicaoCarro]; // Obtém o primeiro carro da lista (com maior pontuação)
+    const pontuacaoUsuario = answers[carroUsuario]; // Obtém a pontuação do carro escolhido
+    const idCarServer = Carros.indexOf(carroUsuario) + 1; // Obtém o índice do carro selecionado na lista Carros e adiciona 1 para obter o ID do carro
+
     sortedCars.forEach(car => {
-      const p = document.createElement("p");
-      p.textContent = `${car}: ${answers[car]} pontos`;
-      resultContentElement.appendChild(p);
+        const p = document.createElement("p");
+        p.textContent = `${car}: ${answers[car]} pontos`;
+        resultContentElement.appendChild(p);
     });
+
     resultElement.style.display = "block";
 
-    
-    var usuarioIdVar = sessionStorage.ID_USUARIO;
+    const usuarioIdVar = sessionStorage.ID_USUARIO;
+
     fetch("/usuarios/salvarPontuacao", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        usuarioIdServer: usuarioIdVar,
-        idQuizServer: 1,
-        pontuacaoServer: car, // variavel que mostra a pontuação final do usuario
-      }),
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            usuarioIdServer: usuarioIdVar,
+            idQuizServer: 1,
+            idCarServer: carroUsuario,
+            pontuacaoServer: pontuacaoUsuario
+        }),
     })
-      .then(function (resposta) {
+    .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          
+            // Se a resposta for bem-sucedida, você pode redirecionar o usuário para outra página
+            // window.location = "dashboard.html"
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+            throw "Houve um erro ao tentar realizar o cadastro!";
         }
-      })
-      .catch(function (resposta) {
+    })
+    .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-      }); 
+    }); 
+}
 
-  }
 
   function finalizar() {
     salvarPontuacao()
@@ -234,4 +250,3 @@
 </script>
 
 </html>
-

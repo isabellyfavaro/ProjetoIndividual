@@ -33,7 +33,6 @@ body {
 
 .menu {
     width: 200px;
-    height: 200px;
     background-color: #BCE9F3;
     font-family: "Bebas Neue";
     font-size: 15px;
@@ -41,8 +40,8 @@ body {
 
 .menu {
     position: absolute;
-    top: 50px;
-    left: 0;
+    top: 80px;
+    left: 30px;
     width: 300px;
     background: #D9D9D9;
     font-family: "Bebas Neue";
@@ -51,7 +50,6 @@ body {
     text-align: left;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: none;
     z-index: 1000; /* Ensure menu is on top */
 }
 

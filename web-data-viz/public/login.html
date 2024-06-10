@@ -66,7 +66,7 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.ID_USUARIO = json.id;
 
                     setTimeout(function () {
                         window.location = "teste.html";
@@ -89,6 +89,10 @@
 
         return false;
     }
+
+    function voltar() {
+            window.location.replace("../../index.html");
+        }
 
     </script>
 </body>

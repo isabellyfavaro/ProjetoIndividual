@@ -14,7 +14,7 @@
     <title>Dashboard</title>
 </head>
 
-<body>
+<body onload="carrosQueSaemMais(), resultadoCarro(),qtdPessoas()" >
     <div class="botao"><button onclick="menu()" class="icone"><img src="css/imagens/icone.png" alt="Menu Icon"></button></div>
     
     <div id="menu" class="menu hidden">
@@ -35,19 +35,19 @@
 
     <div class="container">
         <div class="chart">
-            <canvas id="doughnut" width="400" height="400"></canvas>
-        </div>
+            <canvas id="myChart" width="400" height="400"></canvas>
+                </div>
     </div>
 
     <div>
         <div class="KPIs">
             <div class="box">
                 <p class="p">Seu carro foi:</p>
-                <h1 class="h1">Ferrari <br> 250 GTO</h1>
-            </div>
+                <h1 class="h1" id="Resultado">0</h1>
+                        </div>
             <div class="box">
                 <p class="p">Também tiraram o mesmo carro que você:</p>
-                <h1 class="h1">304</h1>
+                <h1 class="h1" id="Pessoas">0</h1>
                 <h2 class="h2">pessoas</h2>
             </div>
         </div>
@@ -69,14 +69,159 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
     <script src="chart1.js"></script>
-    <script src="chart2.js"></script>
 </body>
 
 </html>
 
 <script>
     function menu() {
-    const menu = document.getElementById('menu');
-    menu.classList.toggle('hidden');
-}
+            const menu = document.getElementById('menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden')
+            } else {
+                menu.classList.add('hidden')
+            }
+    }
+
+        const ctx = document.getElementById('myChart');
+
+        // Declare doughnut no escopo global
+        let doughnut;
+
+        // Aqui é onde você inicializa o gráfico
+        doughnut = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Ferrari 250 GTO', 'Jaguar E-TYPE', 'Chevrolet Corvette Stingray C2', 'Chevrolet Bel Air (TRI-FIVE)', 'Lamborghini Miura', 'BMW 507', 'Jaguar XK120', 'Ford Mustang 69', 'Aston Martin DB5', 'Ford Mustang (First Generation)'],
+                datasets: [{
+                    label: 'Ranking de Carros Mais Populares',
+                    data: [12, 19, 3, 5, 2, 3, 5, 10, 17, 8],
+                    borderWidth: 1,
+                    backgroundColor: [
+                        'rgba(205, 21, 21, 1)',
+                        'rgba(71, 97, 110, 1)',
+                        'rgba(0, 0, 0, 1)',
+                        'rgba(1, 74, 150, 1)',
+                        'rgba(29, 59, 12, 1)',
+                        'rgba(82, 91, 146, 1)',
+                        'rgba(140, 40, 40, 1)',
+                        'rgba(216, 58, 24, 1)',
+                        'rgba(97, 62, 39, 1)',
+                        'rgba(32, 52, 86, 1)'
+                    ],
+                    borderColor: [
+                        'rgba(205, 21, 21, 1)',
+                        'rgba(71, 97, 110, 1)',
+                        'rgba(0, 0, 0, 1)',
+                        'rgba(1, 74, 150, 1)',
+                        'rgba(29, 59, 12, 1)',
+                        'rgba(82, 91, 146, 1)',
+                        'rgba(140, 40, 40, 1)',
+                        'rgba(216, 58, 24, 1)',
+                        'rgba(97, 62, 39, 1)',
+                        'rgba(32, 52, 86, 1)'
+                    ]
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            font: {
+                                family: 'Inria Sans',
+                                size: 11,
+                                weight: '700'
+                            },
+                            color: '#207183',
+                            padding: 20
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        function carrosQueSaemMais() {
+            fetch(`/usuarios/carrosQueSaemMais`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(function (resposta) {
+                    if (!resposta.ok) {
+                        throw new Error("Erro ao obter as três maiores pontuações.");
+                    }
+                    return resposta.json();
+                })
+                .then(function (data) {
+                    console.log("Carros que mais saem: ", data);
+
+                    const nomeCarro = data.map(item => item.carro);
+                    const qtdUsuarios = data.map(item => item.total_usuarios);
+
+                    // Aqui você tenta atualizar os dados do gráfico
+                    doughnut.data.labels = nomeCarro;
+                    doughnut.data.datasets[0].data = qtdUsuarios;
+
+                    doughnut.update(); // você precisa chamar o método update() após atualizar os dados
+                })
+                .catch(function (erro) {
+                    console.error("Erro ao obter as três maiores pontuações: ", erro);
+                });
+        }
+
+        function resultadoCarro() {
+            console.log("ID do usuário enviado para obterTotalJogadas:", sessionStorage.getItem('ID_USUARIO'));
+
+            fetch(`/usuarios/resultadoCarro?usuarioId=${sessionStorage.getItem('ID_USUARIO')}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(function (resposta) {
+                    if (!resposta.ok) {
+                        throw new Error("Erro ao obter o total de jogadas.");
+                    }
+                    return resposta.json();
+                })
+                .then(function (data) {
+                    console.log("nome do carro: ", data[0].Resultado);
+                    document.getElementById("Resultado").innerText = data[0].Resultado;
+
+                    qtdPessoas(data[0].Resultado)
+                })
+                .catch(function (erro) {
+                    console.error("Erro ao obter o total de jogadas: ", erro);
+                });
+        }
+
+        function qtdPessoas(carro) {
+            console.log("ID do usuário enviado para obterTotalJogadas:", sessionStorage.getItem('ID_USUARIO'));
+            fetch(`/usuarios/qtdPessoas/${carro}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(function (resposta) {
+                    if (!resposta.ok) {
+                        throw new Error("Erro ao obter o total de jogadas.");
+                    }
+                    return resposta.json();
+                })
+                .then(function (data) {
+                    console.log("qtdPessoas: ", data[0].Pessoas);
+                    document.getElementById("Pessoas").innerText = data[0].Pessoas;
+                })
+                .catch(function (erro) {
+                    console.error("Erro ao obter o total de jogadas: ", erro);
+                });
+        }
 </script>
