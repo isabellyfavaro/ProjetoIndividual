@@ -29,10 +29,25 @@ dtTeste DATETIME,
 pontuacao INT 
 );   
 
+INSERT INTO historicoTeste VALUES 
+(11, 1, 1, 'Jaguar', '2024-06-09 10:00:00', 1),
+(12, 1, 1, 'Chevrolet E-TYPE', '2024-06-09 10:00:00', 4),
+(13, 1, 1, 'Ferrari 250 GTO', '2024-06-09 10:00:00', 2),
+(14, 1, 1, 'Ford Mustang 69', '2024-06-09 10:00:00', 3),
+(15, 1, 1, 'Jaguar', '2024-06-09 10:00:00', 1),
+(16, 1, 1, 'Chevrolet E-TYPE', '2024-06-09 10:00:00', 4),
+(17, 1, 1, 'Ferrari 250 GTO', '2024-06-09 10:00:00', 2),
+(18, 1, 1, 'Ford Mustang 69', '2024-06-09 10:00:00', 3),
+(19, 1, 1, 'Jaguar', '2024-06-09 10:00:00', 1),
+(20, 1, 1, 'Chevrolet E-TYPE', '2024-06-09 10:00:00', 4),
+(21, 1, 1, 'Ferrari 250 GTO', '2024-06-09 10:00:00', 2),
+(22, 1, 1, 'Ford Mustang 69', '2024-06-09 10:00:00', 3),
+(23, 1, 1, 'Jaguar', '2024-06-09 10:00:00', 1);
+
 SELECT * FROM usuario;  
 SELECT * FROM carros;  
 SELECT * FROM teste;  
-SELECT * FROM historicoTeste;  
+SELECT * FROM historicoTeste;
   
 SELECT carro FROM historicoTeste WHERE fkUsuario = 4;
 SELECT COUNT(fkUsuario) FROM historicoTeste WHERE carro LIKE 'Ferrari 250 GTO';
