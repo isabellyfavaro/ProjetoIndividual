@@ -54,7 +54,7 @@ function resultadoCarro(usuarioId) {
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
     var instrucaoSql = `
-    SELECT carro as Resultado FROM historicoTeste WHERE fkUsuario = ${usuarioId};
+    SELECT carro as Resultado FROM historicoTeste WHERE fkUsuario = ${usuarioId} ORDER BY idHistorico DESC LIMIT 1;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
